@@ -157,10 +157,11 @@ export const SERVICES_SECTION = {
 
 export const SERVICES = [
   {
+    badge: "Par où commencer",
     icon: "Bot",
     name: "Agents IA & Automatisations",
     description:
-      "J'automatise les tâches répétitives et je déploie des agents IA sur-mesure qui qualifient vos leads, répondent à vos clients et connectent vos outils — sans intervention manuelle.",
+      "Vos leads qualifiés, vos emails traités, vos outils synchronisés — sans que vous leviez le petit doigt.",
     items: [
       "Agent IA de qualification de leads",
       "Agent IA support client / FAQ",
@@ -169,10 +170,11 @@ export const SERVICES = [
     ],
   },
   {
+    badge: "L'étape suivante",
     icon: "Globe",
     name: "Site Web Haute Performance",
     description:
-      "Je conçois des sites web rapides, esthétiques et optimisés pour la conversion : chaque page est pensée pour transformer un visiteur en prospect qualifié.",
+      "Un site qui travaille pour vous 24h/24 : chaque page conçue pour transformer un visiteur en prospect qualifié.",
     items: [
       "Site vitrine premium orienté conversion",
       "Landing page campagne",
@@ -181,10 +183,11 @@ export const SERVICES = [
     ],
   },
   {
+    badge: "Pour durer et scaler",
     icon: "Wrench",
     name: "Maintenance & Évolution Continue",
     description:
-      "Je prends en charge la maintenance technique, les mises à jour et l'évolution de vos automatisations — pour que votre infrastructure reste performante et alignée avec votre croissance.",
+      "Votre système évolue avec vous chaque mois. Zéro bug non traité, zéro automatisation qui décroche.",
     items: [
       "Maintenance site (sécurité, performances, mises à jour)",
       "Suivi & évolution de vos agents IA",
@@ -193,6 +196,9 @@ export const SERVICES = [
     ],
   },
 ];
+
+export const SERVICES_LIAISON =
+  "La plupart des clients commencent par un agent IA. Le reste suit naturellement.";
 
 export const PAIN_SECTION = {
   label: "Diagnostic",
