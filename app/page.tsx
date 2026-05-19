@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground test">
+    <main className="min-h-screen bg-background text-foreground">
       <JsonLd />
       <Nav />
       <Hero />
