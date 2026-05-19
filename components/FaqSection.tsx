@@ -61,24 +61,6 @@ export function FaqSection() {
             );
           })}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-10 flex items-start gap-5 rounded-3xl border border-primary/30 bg-primary/5 p-7"
-        >
-          <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground">
-            <ShieldCheck className="h-5 w-5" />
-          </div>
-          <div>
-            <h3 className="font-display text-xl font-semibold">{FAQ_SECTION.guarantee_title}</h3>
-            <p className="mt-2 text-sm text-foreground/85 leading-relaxed">
-              {FAQ_SECTION.guarantee_description}
-            </p>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

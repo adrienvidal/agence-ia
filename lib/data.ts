@@ -236,9 +236,6 @@ export const FOUNDER_SECTION = {
 export const FAQ_SECTION = {
   label: "FAQ",
   title: "Vos questions, nos réponses",
-  guarantee_title: "Satisfait, ou on corrige.",
-  guarantee_description:
-    "Je ne lâche pas un projet tant que vous n'êtes pas 100% satisfait du résultat final.",
 };
 
 export const CTA_FINAL = {
