@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Star, Clock } from "lucide-react";
-import { CALENDLY_URL } from "@/lib/data";
+import { CALENDLY_URL, HERO } from "@/lib/data";
 
 export function Hero() {
   return (
@@ -19,18 +19,17 @@ export function Hero() {
         >
           <div className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.28em] text-foreground/80">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent-mint)] animate-pulse" />
-            Automatisations & Agents IA
+            {HERO.badge}
           </div>
 
           <h1 className="mt-6 font-display text-5xl font-bold leading-[0.95] tracking-tight text-balance md:text-7xl lg:text-[5.5rem]">
-            Travaillez moins.<br />
-            <span className="gradient-text">Produisez plus.</span>
+            {HERO.headline}
+            <br />
+            <span className="gradient-text">{HERO.headline_accent}</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-lg text-foreground/75 leading-relaxed text-balance">
-            J&apos;aide les <strong className="text-foreground font-semibold">entreprises</strong> à se doter
-            d&apos;une <strong className="text-foreground font-semibold">infrastructure web et IA</strong> performante —
-            pour scaler sans recruter.
+            {HERO.description}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -40,14 +39,14 @@ export function Hero() {
               rel="noreferrer"
               className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:opacity-90 glow"
             >
-              Réserver mon audit gratuit
+              {HERO.cta_primary}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
               href="#realisations"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-6 py-3.5 text-sm font-medium text-foreground backdrop-blur hover:bg-surface"
             >
-              Voir mes réalisations
+              {HERO.cta_secondary}
             </a>
           </div>
 
@@ -58,11 +57,11 @@ export function Hero() {
                   <Star key={i} className="h-4 w-4 fill-current" />
                 ))}
               </div>
-              100% clients satisfaits
+              {HERO.social_proof}
             </div>
             <div className="flex items-center gap-2">
               <Shield className="h-4 w-4 text-primary" />
-              RGPD · données hébergées en Europe
+              {HERO.gdpr}
             </div>
           </div>
         </motion.div>
@@ -80,32 +79,40 @@ export function Hero() {
                 <span className="absolute -bottom-1 -right-1 h-4 w-4 rounded-full border-2 border-background bg-primary animate-pulse" />
               </div>
               <div>
-                <div className="font-display text-lg font-semibold">Adrien Vidal</div>
-                <div className="text-sm text-muted-foreground">Développeur IA & Automatisation</div>
+                <div className="font-display text-lg font-semibold">{HERO.card.name}</div>
+                <div className="text-sm text-muted-foreground">{HERO.card.role}</div>
               </div>
             </div>
 
             <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary">
               <Clock className="h-3 w-3" />
-              Répond en 24h
+              {HERO.card.availability}
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-3">
               <div className="rounded-2xl border border-border bg-background/50 p-5">
-                <div className="font-display text-4xl font-semibold text-primary">10 ans</div>
-                <div className="mt-1 text-xs text-muted-foreground">Expérience front-end senior</div>
+                <div className="font-display text-4xl font-semibold text-primary">
+                  {HERO.card.stat1.value}
+                </div>
+                <div className="mt-1 text-xs text-muted-foreground">{HERO.card.stat1.label}</div>
               </div>
               <div className="rounded-2xl border border-border bg-background/50 p-5">
-                <div className="font-display text-4xl font-semibold text-primary">+8</div>
-                <div className="mt-1 text-xs text-muted-foreground">Systèmes IA déployés</div>
+                <div className="font-display text-4xl font-semibold text-primary">
+                  {HERO.card.stat2.value}
+                </div>
+                <div className="mt-1 text-xs text-muted-foreground">{HERO.card.stat2.label}</div>
               </div>
             </div>
 
             <div className="mt-6 rounded-2xl border border-border bg-background/50 p-5">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">Stack signature</div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                {HERO.card.stack_label}
+              </div>
               <div className="mt-3 flex flex-wrap gap-1.5">
-                {["N8n", "OpenAI", "Anthropic", "Next.js", "Notion"].map((t) => (
-                  <span key={t} className="rounded-md bg-surface px-2 py-1 text-xs text-foreground">{t}</span>
+                {HERO.card.stack.map((t) => (
+                  <span key={t} className="rounded-md bg-surface px-2 py-1 text-xs text-foreground">
+                    {t}
+                  </span>
                 ))}
               </div>
             </div>

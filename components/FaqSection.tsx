@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus, ShieldCheck } from "lucide-react";
-import { FAQ } from "@/lib/data";
+import { FAQ, FAQ_SECTION } from "@/lib/data";
 
 export function FaqSection() {
   const [open, setOpen] = useState<number | null>(0);
@@ -18,9 +18,9 @@ export function FaqSection() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <div className="text-xs uppercase tracking-[0.2em] text-primary">FAQ</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-primary">{FAQ_SECTION.label}</div>
           <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl text-balance">
-            Vos questions, nos réponses
+            {FAQ_SECTION.title}
           </h2>
         </motion.div>
 
@@ -69,9 +69,9 @@ export function FaqSection() {
             <ShieldCheck className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="font-display text-xl font-semibold">Satisfait, ou on corrige.</h3>
+            <h3 className="font-display text-xl font-semibold">{FAQ_SECTION.guarantee_title}</h3>
             <p className="mt-2 text-sm text-foreground/85 leading-relaxed">
-              Je ne lâche pas un projet tant que vous n&apos;êtes pas 100% satisfait du résultat final.
+              {FAQ_SECTION.guarantee_description}
             </p>
           </div>
         </motion.div>

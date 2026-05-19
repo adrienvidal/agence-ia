@@ -2,11 +2,14 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { CALENDLY_URL, PROJECTS, UPCOMING_PROJECT } from "@/lib/data";
+import { CALENDLY_URL, PROJECTS, REALISATIONS_SECTION, UPCOMING_PROJECT } from "@/lib/data";
 
 export function RealisationsSection() {
   return (
-    <section id="realisations" className="relative border-t border-border/60 bg-surface/20 py-24 md:py-32">
+    <section
+      id="realisations"
+      className="relative border-t border-border/60 bg-surface/20 py-24 md:py-32"
+    >
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,9 +18,11 @@ export function RealisationsSection() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <div className="text-xs uppercase tracking-[0.2em] text-primary">Réalisations</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-primary">
+            {REALISATIONS_SECTION.label}
+          </div>
           <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl text-balance">
-            Ce qu&apos;on a déjà construit
+            {REALISATIONS_SECTION.title}
           </h2>
         </motion.div>
 
@@ -35,23 +40,34 @@ export function RealisationsSection() {
                 <div>
                   <div className="flex flex-wrap gap-1.5">
                     {p.tags.map((t) => (
-                      <span key={t} className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-xs text-primary">
+                      <span
+                        key={t}
+                        className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-xs text-primary"
+                      >
                         {t}
                       </span>
                     ))}
                   </div>
                   <h3 className="mt-4 font-display text-3xl font-semibold md:text-4xl">{p.name}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">{p.subtitle}</p>
-                  <p className="mt-5 text-base text-foreground/90 leading-relaxed">{p.description}</p>
+                  <p className="mt-5 text-base text-foreground/90 leading-relaxed">
+                    {p.description}
+                  </p>
 
                   <div className="mt-6 grid gap-4 sm:grid-cols-2">
                     <div className="rounded-2xl border border-border bg-background/60 p-4">
-                      <div className="text-xs uppercase tracking-wider text-muted-foreground">Problème</div>
+                      <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                        {REALISATIONS_SECTION.problem_label}
+                      </div>
                       <p className="mt-2 text-sm text-foreground/85 leading-relaxed">{p.problem}</p>
                     </div>
                     <div className="rounded-2xl border border-border bg-background/60 p-4">
-                      <div className="text-xs uppercase tracking-wider text-primary">Solution</div>
-                      <p className="mt-2 text-sm text-foreground/85 leading-relaxed">{p.solution}</p>
+                      <div className="text-xs uppercase tracking-wider text-primary">
+                        {REALISATIONS_SECTION.solution_label}
+                      </div>
+                      <p className="mt-2 text-sm text-foreground/85 leading-relaxed">
+                        {p.solution}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -85,8 +101,12 @@ export function RealisationsSection() {
                     <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                     {UPCOMING_PROJECT.status}
                   </div>
-                  <h3 className="mt-2 font-display text-2xl font-semibold md:text-3xl">{UPCOMING_PROJECT.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{UPCOMING_PROJECT.description}</p>
+                  <h3 className="mt-2 font-display text-2xl font-semibold md:text-3xl">
+                    {UPCOMING_PROJECT.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {UPCOMING_PROJECT.description}
+                  </p>
                 </div>
               </div>
             </div>
@@ -100,7 +120,7 @@ export function RealisationsSection() {
             rel="noreferrer"
             className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:opacity-90"
           >
-            Lancer votre projet
+            {REALISATIONS_SECTION.cta}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </a>
         </div>

@@ -8,14 +8,14 @@ import { ProcessSection } from "@/components/ProcessSection";
 import { FounderSection } from "@/components/FounderSection";
 import { FaqSection } from "@/components/FaqSection";
 import { CtaFinal, Footer } from "@/components/CtaFinal";
+import { META } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Adrien Vidal — Automatisation IA & Agents sur-mesure",
-  description:
-    "Développeur senior (Chanel, Darty, Fnac) spécialisé en automatisation IA et agents sur-mesure pour les PME qui veulent scaler sans recruter. Diagnostic gratuit 30 min.",
+  title: META.title,
+  description: META.description,
   openGraph: {
-    title: "Adrien Vidal — Automatisation IA & Agents sur-mesure",
-    description: "Automatisation IA et agents sur-mesure pour PME. Diagnostic gratuit 30 min.",
+    title: META.og.title,
+    description: META.og.description,
     type: "website",
   },
   alternates: {

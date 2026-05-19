@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
-import { CLIENTS } from "@/lib/data";
+import { CLIENTS, FOUNDER_SECTION } from "@/lib/data";
 
 export function FounderSection() {
   return (
@@ -16,24 +16,31 @@ export function FounderSection() {
           className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center"
         >
           <div>
-            <div className="text-xs uppercase tracking-[0.2em] text-primary">Le mot du fondateur</div>
+            <div className="text-xs uppercase tracking-[0.2em] text-primary">
+              {FOUNDER_SECTION.label}
+            </div>
 
             <div className="mt-8 flex items-center gap-4">
               <div className="grid h-20 w-20 place-items-center rounded-2xl bg-primary font-display text-3xl font-bold text-primary-foreground glow">
                 AV
               </div>
               <div>
-                <div className="font-display text-xl font-semibold">Adrien Vidal</div>
-                <div className="text-sm text-muted-foreground">Fondateur · WEBNROLLS EURL</div>
-                <div className="text-xs text-muted-foreground/70">Développeur IA & Automatisation</div>
+                <div className="font-display text-xl font-semibold">{FOUNDER_SECTION.name}</div>
+                <div className="text-sm text-muted-foreground">{FOUNDER_SECTION.company}</div>
+                <div className="text-xs text-muted-foreground/70">{FOUNDER_SECTION.role}</div>
               </div>
             </div>
 
             <div className="mt-8">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">Ils m&apos;ont fait confiance</div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                {FOUNDER_SECTION.clients_label}
+              </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 {CLIENTS.map((c) => (
-                  <span key={c} className="rounded-lg border border-border bg-background/60 px-3 py-1.5 font-display text-sm text-foreground/85">
+                  <span
+                    key={c}
+                    className="rounded-lg border border-border bg-background/60 px-3 py-1.5 font-display text-sm text-foreground/85"
+                  >
                     {c}
                   </span>
                 ))}
@@ -42,26 +49,19 @@ export function FounderSection() {
           </div>
 
           <div className="space-y-6">
-            <p className="text-lg leading-relaxed text-foreground/90 text-balance">
-              J&apos;ai passé 10 ans à construire des interfaces exigeantes pour
-              Chanel, Darty, Fnac. Cette rigueur technique, je l&apos;applique
-              aujourd&apos;hui à l&apos;automatisation IA pour les PME qui veulent
-              scaler sans recruter.
-            </p>
-            <p className="text-lg leading-relaxed text-foreground/90 text-balance">
-              Mon objectif : comprendre ce qui freine vraiment votre croissance
-              et construire des systèmes sur-mesure qui vous redonnent votre
-              temps.
-            </p>
+            {FOUNDER_SECTION.bio.map((paragraph, i) => (
+              <p key={i} className="text-lg leading-relaxed text-foreground/90 text-balance">
+                {paragraph}
+              </p>
+            ))}
 
             <blockquote className="relative mt-8 rounded-3xl border border-primary/30 bg-primary/5 p-7">
               <Quote className="absolute -top-3 left-6 h-6 w-6 rounded-full bg-primary p-1 text-primary-foreground" />
               <p className="font-display text-xl leading-snug text-foreground text-balance">
-                « On n&apos;automatise pas pour remplacer l&apos;humain. On le libère
-                pour qu&apos;il se concentre sur ce qui compte vraiment. »
+                {FOUNDER_SECTION.quote}
               </p>
               <footer className="mt-4 text-sm text-muted-foreground">
-                — Adrien Vidal · Fondateur, WEBNROLLS
+                {FOUNDER_SECTION.quote_attribution}
               </footer>
             </blockquote>
           </div>

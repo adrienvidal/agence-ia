@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Clock, Database, TrendingDown, ArrowRight } from "lucide-react";
-import { CALENDLY_URL, PAINS } from "@/lib/data";
+import { CALENDLY_URL, PAIN_SECTION, PAINS } from "@/lib/data";
 
 const icons = [Clock, Database, TrendingDown];
 
@@ -17,13 +17,13 @@ export function PainSection() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <div className="text-xs uppercase tracking-[0.2em] text-primary">Diagnostic</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-primary">
+            {PAIN_SECTION.label}
+          </div>
           <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl text-balance">
-            Votre entreprise est freinée par l&apos;opérationnel.
+            {PAIN_SECTION.title}
           </h2>
-          <p className="mt-5 text-lg text-muted-foreground">
-            Vous scalez, mais vos process ne suivent pas…
-          </p>
+          <p className="mt-5 text-lg text-muted-foreground">{PAIN_SECTION.subtitle}</p>
         </motion.div>
 
         <div className="mt-16 grid gap-5 md:grid-cols-3">
@@ -55,7 +55,7 @@ export function PainSection() {
             rel="noreferrer"
             className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:opacity-90"
           >
-            Automatiser mes process
+            {PAIN_SECTION.cta}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </a>
         </div>

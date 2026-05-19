@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Infinity as InfinityIcon } from "lucide-react";
-import { CALENDLY_URL, PROCESS_STEPS } from "@/lib/data";
+import { CALENDLY_URL, PROCESS_SECTION, PROCESS_STEPS } from "@/lib/data";
 
 export function ProcessSection() {
   return (
@@ -15,9 +15,11 @@ export function ProcessSection() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <div className="text-xs uppercase tracking-[0.2em] text-primary">Processus</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-primary">
+            {PROCESS_SECTION.label}
+          </div>
           <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl text-balance">
-            Une méthode claire et décisive
+            {PROCESS_SECTION.title}
           </h2>
         </motion.div>
 
@@ -51,11 +53,9 @@ export function ProcessSection() {
             <InfinityIcon className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="font-display text-xl font-semibold">Au-delà de la mission</h3>
+            <h3 className="font-display text-xl font-semibold">{PROCESS_SECTION.beyond_title}</h3>
             <p className="mt-2 text-sm text-foreground/85 leading-relaxed max-w-2xl">
-              Je ne disparais pas après la livraison. Retainer disponible pour
-              optimiser en continu, ajouter de nouvelles automatisations et
-              accompagner votre croissance.
+              {PROCESS_SECTION.beyond_description}
             </p>
           </div>
         </motion.div>
@@ -67,7 +67,7 @@ export function ProcessSection() {
             rel="noreferrer"
             className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:opacity-90"
           >
-            Discuter de mon projet
+            {PROCESS_SECTION.cta}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </a>
         </div>
