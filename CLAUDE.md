@@ -20,16 +20,27 @@ Single-page landing site built with **Next.js 15 App Router** + **React 19** + *
 
 ```
 app/
-  layout.tsx      # Root HTML shell + global metadata + Google Fonts
-  page.tsx        # Home page (section order + per-page metadata)
-  globals.css     # Tailwind v4 theme + custom utilities
-components/       # Presentational sections (all "use client")
+  layout.tsx            # Root HTML shell + global metadata + Google Fonts
+  page.tsx              # Home page (section order + per-page metadata)
+  globals.css           # Tailwind v4 theme + custom utilities
+  robots.ts             # SEO robots.txt
+  sitemap.ts            # SEO sitemap.xml
+  error.tsx             # Global error boundary
+  not-found.tsx         # 404 page
+  og/route.tsx          # Dynamic OG image (edge runtime, ImageResponse)
+  confidentialite/      # Privacy policy page
+  cgu/                  # Terms of service page
+  mentions-legales/     # Legal notices page
+  cookies/              # Cookie policy page
+components/             # Presentational sections (all "use client")
 lib/
-  data.ts         # All static content (copy, links, project data)
-  utils.ts        # cn() helper (clsx + tailwind-merge)
+  data.ts               # All static content (copy, links, project data)
+  utils.ts              # cn() helper (clsx + tailwind-merge)
 ```
 
-Section rendering order in `page.tsx`: `Nav → Hero → ToolsBar → PainSection → RealisationsSection → ProcessSection → FounderSection → FaqSection → CtaFinal → Footer`.
+Section rendering order in `page.tsx`: `JsonLd → Nav → Hero → ToolsBar → PainSection → ServicesSection → RealisationsSection → ProcessSection → FounderSection → FaqSection → CtaFinal → Footer`.
+
+`RealisationsSection` is conditionally rendered based on the `SHOW_REALISATIONS` boolean flag in `lib/data.ts`.
 
 ## Key conventions
 
@@ -47,7 +58,7 @@ Section rendering order in `page.tsx`: `Nav → Hero → ToolsBar → PainSectio
 
 **Static assets** live in `public/`. Client logos are in `public/clients/` (webp/png). On the dark-only site, logos are rendered white via `[filter:brightness(0)_invert(1)]` + `opacity-40`.
 
-**All static content** (copy, URLs, project data, FAQ) lives in [lib/data.ts](lib/data.ts). Edit there first when updating site content. `CALENDLY_URL` is the primary CTA used across multiple components.
+**All static content** (copy, URLs, project data, FAQ) lives in [lib/data.ts](lib/data.ts). Edit there first when updating site content. `CALENDLY_URL` is the primary CTA used across multiple components. `SITE_URL` is used for OG and sitemap generation.
 
 Every text visible on the site is exported from `lib/data.ts` — no hardcoded strings in components. Exports are organized by section:
 
@@ -58,6 +69,7 @@ Every text visible on the site is exported from `lib/data.ts` — no hardcoded s
 | `TOOLS_BAR` / `TOOLS`                                    | Tools marquee                                                 |
 | `HERO`                                                   | Hero section (badge, headline, CTA, card stats, client logos) |
 | `PAIN_SECTION` / `PAINS`                                 | Diagnostic section                                            |
+| `SERVICES_SECTION` / `SERVICES`                          | Services section (three offerings)                            |
 | `REALISATIONS_SECTION` / `PROJECTS` / `UPCOMING_PROJECT` | Réalisations section                                          |
 | `PROCESS_SECTION` / `PROCESS_STEPS`                      | Process section                                               |
 | `FOUNDER_SECTION` / `CLIENTS`                            | Founder section                                               |
