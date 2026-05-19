@@ -38,7 +38,7 @@ export function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group flex flex-col rounded-3xl border border-border bg-surface/40 p-7 transition hover:border-primary/40 hover:-translate-y-1"
+                className="group flex flex-col rounded-3xl border border-border bg-surface/40 p-7 transition-colors hover:border-primary/40 hover:bg-surface/70"
               >
                 <span className="self-start rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">
                   {service.badge}

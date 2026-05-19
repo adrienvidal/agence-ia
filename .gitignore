@@ -13,6 +13,7 @@ dist
 
 # Next.js
 .next/
+.claude/
 out/
 
 # Env

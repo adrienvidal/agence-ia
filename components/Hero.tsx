@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Star, Clock } from "lucide-react";
 import { CALENDLY_URL, HERO, SHOW_REALISATIONS } from "@/lib/data";
@@ -18,7 +19,7 @@ export function Hero() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.28em] text-foreground/80">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent-mint)] animate-pulse" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent-mint)]" />
             {HERO.badge}
           </div>
 
@@ -57,6 +58,10 @@ export function Hero() {
               <Shield className="h-4 w-4 text-primary" />
               {HERO.gdpr}
             </div>
+            <div className="flex items-center gap-2">
+              <Star className="h-4 w-4 fill-primary text-primary" />
+              {HERO.social_proof}
+            </div>
           </div>
 
           <div className="mt-10 border-t border-border/30 pt-8">
@@ -65,10 +70,12 @@ export function Hero() {
             </p>
             <div className="flex flex-wrap items-center gap-10">
               {HERO.clients.map((client) => (
-                <img
+                <Image
                   key={client.name}
                   src={client.logo}
                   alt={client.name}
+                  width={120}
+                  height={40}
                   className="h-10 w-auto object-contain opacity-55 filter-[brightness(0)_invert(1)]"
                 />
               ))}
@@ -86,7 +93,7 @@ export function Hero() {
             <div className="flex items-center gap-4">
               <div className="relative grid h-16 w-16 place-items-center rounded-2xl bg-primary font-display text-2xl font-bold text-primary-foreground">
                 AV
-                <span className="absolute -bottom-1 -right-1 h-4 w-4 rounded-full border-2 border-background bg-primary animate-pulse" />
+                <span className="absolute -bottom-1 -right-1 h-4 w-4 rounded-full border-2 border-background bg-primary" />
               </div>
               <div>
                 <div className="font-display text-lg font-semibold">{HERO.card.name}</div>

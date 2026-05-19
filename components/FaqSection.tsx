@@ -33,7 +33,7 @@ export function FaqSection() {
                   onClick={() => setOpen(isOpen ? null : i)}
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${i}`}
-                  className="flex w-full items-center justify-between gap-4 p-6 text-left"
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 p-6 text-left"
                 >
                   <span className="font-display text-base font-medium md:text-lg">{item.q}</span>
                   <Plus
@@ -51,7 +51,7 @@ export function FaqSection() {
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="px-6 pb-6 text-sm leading-relaxed text-muted-foreground md:text-base">
+                      <p className="px-6 pb-6 text-sm leading-relaxed text-muted-foreground md:text-base whitespace-pre-wrap">
                         {item.a}
                       </p>
                     </motion.div>
