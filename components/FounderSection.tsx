@@ -54,16 +54,6 @@ export function FounderSection() {
                 {paragraph}
               </p>
             ))}
-
-            <blockquote className="relative mt-8 rounded-3xl border border-primary/30 bg-primary/5 p-7">
-              <Quote className="absolute -top-3 left-6 h-6 w-6 rounded-full bg-primary p-1 text-primary-foreground" />
-              <p className="font-display text-xl leading-snug text-foreground text-balance">
-                {FOUNDER_SECTION.quote}
-              </p>
-              <footer className="mt-4 text-sm text-muted-foreground">
-                {FOUNDER_SECTION.quote_attribution}
-              </footer>
-            </blockquote>
           </div>
         </motion.div>
       </div>

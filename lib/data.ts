@@ -236,9 +236,6 @@ export const FOUNDER_SECTION = {
     "J'ai passé 10 ans à construire des interfaces exigeantes pour Chanel, Darty, Fnac. Cette rigueur technique, je l'applique aujourd'hui à l'automatisation IA pour les PME qui veulent scaler sans recruter.",
     "Mon objectif : comprendre ce qui freine vraiment votre croissance et construire des systèmes sur-mesure qui vous redonnent votre temps.",
   ],
-  quote:
-    "« On n'automatise pas pour remplacer l'humain. On le libère pour qu'il se concentre sur ce qui compte vraiment. »",
-  quote_attribution: "— Adrien Vidal · Fondateur, WEBNROLLS",
 };
 
 export const FAQ_SECTION = {
