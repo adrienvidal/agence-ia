@@ -29,7 +29,7 @@ export const HERO = {
   headline: "Travaillez moins.",
   headline_accent: "Produisez plus.",
   description:
-    "J'aide les entreprises à se doter d'une infrastructure web et IA performante — pour scaler sans recruter.",
+    "J'aide les entreprises à se doter d'une infrastructure web et IA performante, pour scaler sans recruter.",
   cta_primary: "Réserver mon audit gratuit",
   cta_secondary: "Voir mes réalisations",
   social_proof: "100% clients satisfaits",
@@ -79,15 +79,15 @@ export const PAIN_SECTION = {
 export const PAINS = [
   {
     title: "Vous êtes le système",
-    body: "Relances manuelles, devis à recopier, suivis qui tombent à l'eau — sans vous, rien ne tourne. Votre croissance est plafonnée par votre propre disponibilité.",
+    body: "Relances manuelles, devis à recopier, suivis qui tombent à l'eau. Sans vous, rien ne tourne. Votre croissance est plafonnée par votre propre disponibilité.",
   },
   {
     title: "Vos outils ne se parlent pas",
-    body: "CRM, agenda, formulaires, Google Sheets — chaque brique est isolée. Résultat : vous saisissez deux fois les mêmes infos et vous pilotez à l'instinct.",
+    body: "CRM, agenda, formulaires, Google Sheets : chaque brique est isolée. Résultat : vous saisissez deux fois les mêmes infos et vous pilotez à l'instinct.",
   },
   {
     title: "Trafic & Acquisition",
-    body: "Votre offre est solide, mais votre visibilité repose sur le réseau et le hasard. Pas de machine d'acquisition — pas de croissance prévisible.",
+    body: "Votre offre est solide, mais votre visibilité repose sur le réseau et le hasard. Pas de machine d'acquisition, pas de croissance prévisible.",
   },
 ];
 
@@ -95,7 +95,7 @@ export const SERVICES_SECTION = {
   label: "Services",
   title: "Ce que je fais pour vous",
   intro:
-    "Je conçois des systèmes digitaux complets — site haute performance, agents IA et automatisations — pour que votre business attire, qualifie et convertit en automatique.",
+    "Je conçois des systèmes digitaux complets : site haute performance, agents IA et automatisations, pour que votre business attire, qualifie et convertit en automatique.",
 };
 
 export const SERVICES = [
@@ -253,7 +253,7 @@ L'objectif : comprendre ce qui freine votre croissance et voir si on peut y rem�
 
 Si votre situation correspond à ce qu'on fait, vous recevez un devis sur-mesure. Une fois validé, on démarre dans les 48h.
 
-Chaque mission inclut une phase de diagnostic approfondi. On cartographie vos processus, on identifie les points de friction et on construit la solution adaptée à votre réalité — jamais un template.`,
+Chaque mission inclut une phase de diagnostic approfondi. On cartographie vos processus, on identifie les points de friction et on construit la solution adaptée à votre réalité. Jamais un template.`,
   },
   {
     q: "Quels outils utilisez-vous ?",
@@ -266,7 +266,7 @@ Le choix final dépend toujours de votre projet et de vos contraintes. On prend 
   {
     q: "Combien de temps prend la livraison ?",
     a: `Une automatisation ciblée peut être opérationnelle en quelques jours.
-Un système complet — agent IA, intégrations, site — demande généralement 2 à 4 semaines.
+Un système complet (agent IA, intégrations, site) demande généralement 2 à 4 semaines.
 
 Les délais sont définis ensemble lors de l'onboarding, une fois qu'on a une vision claire du périmètre. Aucun chiffre annoncé au hasard.
 
@@ -292,7 +292,7 @@ L'objectif à terme : scaler sans jamais être ralenti par l'opérationnel.`,
     q: "Mes données sont-elles en sécurité ?",
     a: `Vos données restent en Europe, point final.
 
-On n'utilise aucune plateforme américaine pour traiter vos informations. Nos solutions sont hébergées sur des serveurs européens, conformes RGPD, avec des modèles IA dédiés à votre projet — jamais mutualisés.
+On n'utilise aucune plateforme américaine pour traiter vos informations. Nos solutions sont hébergées sur des serveurs européens, conformes RGPD, avec des modèles IA dédiés à votre projet, jamais mutualisés.
 
 Performances maximales sans compromis sur la confidentialité. Ce n'est pas une option.`,
   },
