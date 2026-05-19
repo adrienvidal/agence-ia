@@ -8,7 +8,8 @@ import { RealisationsSection } from "@/components/RealisationsSection";
 import { ProcessSection } from "@/components/ProcessSection";
 import { FounderSection } from "@/components/FounderSection";
 import { FaqSection } from "@/components/FaqSection";
-import { CtaFinal, Footer } from "@/components/CtaFinal";
+import { CtaFinal } from "@/components/CtaFinal";
+import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { META, SHOW_REALISATIONS, SITE_URL } from "@/lib/data";
 

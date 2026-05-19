@@ -51,16 +51,16 @@ Section rendering order in `page.tsx`: `Nav → Hero → ToolsBar → PainSectio
 
 Every text visible on the site is exported from `lib/data.ts` — no hardcoded strings in components. Exports are organized by section:
 
-| Export                                                   | Section                                         |
-| -------------------------------------------------------- | ----------------------------------------------- |
-| `META`                                                   | Page metadata + OpenGraph                       |
-| `NAV` / `NAV_LINKS`                                      | Navigation bar                                  |
-| `TOOLS_BAR` / `TOOLS`                                    | Tools marquee                                   |
+| Export                                                   | Section                                                       |
+| -------------------------------------------------------- | ------------------------------------------------------------- |
+| `META`                                                   | Page metadata + OpenGraph                                     |
+| `NAV` / `NAV_LINKS`                                      | Navigation bar                                                |
+| `TOOLS_BAR` / `TOOLS`                                    | Tools marquee                                                 |
 | `HERO`                                                   | Hero section (badge, headline, CTA, card stats, client logos) |
-| `PAIN_SECTION` / `PAINS`                                 | Diagnostic section                              |
-| `REALISATIONS_SECTION` / `PROJECTS` / `UPCOMING_PROJECT` | Réalisations section                            |
-| `PROCESS_SECTION` / `PROCESS_STEPS`                      | Process section                                 |
-| `FOUNDER_SECTION` / `CLIENTS`                            | Founder section                                 |
-| `FAQ_SECTION` / `FAQ`                                    | FAQ section                                     |
-| `CTA_FINAL`                                              | Final CTA section                               |
-| `FOOTER`                                                 | Footer (copyright, links)                       |
+| `PAIN_SECTION` / `PAINS`                                 | Diagnostic section                                            |
+| `REALISATIONS_SECTION` / `PROJECTS` / `UPCOMING_PROJECT` | Réalisations section                                          |
+| `PROCESS_SECTION` / `PROCESS_STEPS`                      | Process section                                               |
+| `FOUNDER_SECTION` / `CLIENTS`                            | Founder section                                               |
+| `FAQ_SECTION` / `FAQ`                                    | FAQ section                                                   |
+| `CTA_FINAL`                                              | Final CTA section                                             |
+| `FOOTER`                                                 | Footer (copyright, links)                                     |

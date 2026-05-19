@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { CALENDLY_URL, CTA_FINAL, FOOTER } from "@/lib/data";
+import { CALENDLY_URL, CTA_FINAL } from "@/lib/data";
 
 export function CtaFinal() {
   return (
@@ -40,22 +40,5 @@ export function CtaFinal() {
         </div>
       </motion.div>
     </section>
-  );
-}
-
-export function Footer() {
-  return (
-    <footer className="border-t border-border/60 bg-surface/30 py-8">
-      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 md:px-8 md:flex-row md:items-center md:justify-between">
-        <div className="text-sm text-muted-foreground">{FOOTER.copyright}</div>
-        <div className="flex flex-wrap gap-6 text-sm text-muted-foreground">
-          {FOOTER.links.map((link) => (
-            <a key={link.label} href={link.href} className="hover:text-foreground">
-              {link.label}
-            </a>
-          ))}
-        </div>
-      </div>
-    </footer>
   );
 }

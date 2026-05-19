@@ -252,12 +252,23 @@ export const CTA_FINAL = {
 };
 
 export const FOOTER = {
-  copyright: "© 2026 Adrien Vidal · WEBNROLLS EURL · Paris",
-  links: [
-    { label: "FAQ", href: "#faq" },
+  address: {
+    street: "4 place Auguste Métivier",
+    city: "75020 Paris",
+  },
+  contact: [{ label: "contact@viloris.io", href: "mailto:contact@viloris.io" }],
+  ressources: [{ label: "FAQ", href: "#faq" }],
+  legal: [
     { label: "Mentions légales", href: "/mentions-legales" },
+    { label: "Condition générale d'utilisation", href: "/cgu" },
     { label: "Politique de confidentialité", href: "/confidentialite" },
+    { label: "Politique de cookies (UE)", href: "/cookies" },
   ],
+  subfooter: {
+    text: "© Tous droits réservés — Site réalisé par ",
+    linkLabel: "Viloris.io",
+    linkHref: "https://viloris.io",
+  },
 };
 
 export const CLIENTS = ["Chanel", "Fnac", "Darty", "Prisma Media", "Yves Rocher"];
