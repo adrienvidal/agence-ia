@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Star, Clock } from "lucide-react";
-import { CALENDLY_URL, HERO } from "@/lib/data";
+import { CALENDLY_URL, HERO, SHOW_REALISATIONS } from "@/lib/data";
 
 export function Hero() {
   return (
@@ -42,12 +42,14 @@ export function Hero() {
               {HERO.cta_primary}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
-            <a
-              href="#realisations"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-6 py-3.5 text-sm font-medium text-foreground backdrop-blur hover:bg-surface"
-            >
-              {HERO.cta_secondary}
-            </a>
+            {SHOW_REALISATIONS && (
+              <a
+                href="#realisations"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-6 py-3.5 text-sm font-medium text-foreground backdrop-blur hover:bg-surface"
+              >
+                {HERO.cta_secondary}
+              </a>
+            )}
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">

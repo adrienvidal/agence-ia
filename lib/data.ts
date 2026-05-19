@@ -1,4 +1,6 @@
 export const SITE_URL = "https://viloris.io";
+
+export const SHOW_REALISATIONS = false;
 export const CALENDLY_URL = "https://calendly.com/adrienvidal";
 
 export const META = {

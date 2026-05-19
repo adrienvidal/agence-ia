@@ -10,7 +10,7 @@ import { FounderSection } from "@/components/FounderSection";
 import { FaqSection } from "@/components/FaqSection";
 import { CtaFinal, Footer } from "@/components/CtaFinal";
 import { JsonLd } from "@/components/JsonLd";
-import { META, SITE_URL } from "@/lib/data";
+import { META, SHOW_REALISATIONS, SITE_URL } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: META.title,
@@ -44,7 +44,7 @@ export default function Home() {
       <ToolsBar />
       <PainSection />
       <ServicesSection />
-      <RealisationsSection />
+      {SHOW_REALISATIONS && <RealisationsSection />}
       <ProcessSection />
       <FounderSection />
       <FaqSection />

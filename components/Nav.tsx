@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { CALENDLY_URL, NAV, NAV_LINKS } from "@/lib/data";
+import { CALENDLY_URL, NAV, NAV_LINKS, SHOW_REALISATIONS } from "@/lib/data";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -23,7 +23,7 @@ export function Nav() {
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          {NAV_LINKS.map((l) => (
+          {NAV_LINKS.filter((l) => l.href !== "#realisations" || SHOW_REALISATIONS).map((l) => (
             <a key={l.href} href={l.href} className="hover:text-foreground transition-colors">
               {l.label}
             </a>
@@ -51,7 +51,7 @@ export function Nav() {
       {open && (
         <div className="md:hidden border-t border-border/40 bg-background px-5 py-6 animate-fade-in">
           <div className="flex flex-col gap-5 text-base">
-            {NAV_LINKS.map((l) => (
+            {NAV_LINKS.filter((l) => l.href !== "#realisations" || SHOW_REALISATIONS).map((l) => (
               <a
                 key={l.href}
                 href={l.href}
