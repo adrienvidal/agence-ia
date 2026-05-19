@@ -15,7 +15,7 @@ export const NAV = {
 };
 
 export const NAV_LINKS = [
-  { label: "Services", href: "#diagnostic" },
+  { label: "Services", href: "#services" },
   { label: "Réalisations", href: "#realisations" },
   { label: "Processus", href: "#processus" },
   { label: "FAQ", href: "#faq" },
@@ -138,6 +138,52 @@ export const HERO = {
     stack: ["N8n", "OpenAI", "Anthropic", "Next.js", "Notion"],
   },
 };
+
+export const SERVICES_SECTION = {
+  label: "Services",
+  title: "Ce que je fais pour vous",
+  intro:
+    "Je conçois des systèmes digitaux complets — site haute performance, agents IA et automatisations — pour que votre business attire, qualifie et convertit en automatique.",
+};
+
+export const SERVICES = [
+  {
+    icon: "Bot",
+    name: "Agents IA & Automatisations",
+    description:
+      "J'automatise les tâches répétitives et je déploie des agents IA sur-mesure qui qualifient vos leads, répondent à vos clients et connectent vos outils — sans intervention manuelle.",
+    items: [
+      "Agent IA de qualification de leads",
+      "Agent IA support client / FAQ",
+      "Automatisations métier sur-mesure (N8n)",
+      "Audit & cartographie de vos flux automatisables",
+    ],
+  },
+  {
+    icon: "Globe",
+    name: "Site Web Haute Performance",
+    description:
+      "Je conçois des sites web rapides, esthétiques et optimisés pour la conversion : chaque page est pensée pour transformer un visiteur en prospect qualifié.",
+    items: [
+      "Site vitrine premium orienté conversion",
+      "Landing page campagne",
+      "Refonte de site existant",
+      "Intégration d'un agent IA directement dans votre site",
+    ],
+  },
+  {
+    icon: "Wrench",
+    name: "Maintenance & Évolution Continue",
+    description:
+      "Je prends en charge la maintenance technique, les mises à jour et l'évolution de vos automatisations — pour que votre infrastructure reste performante et alignée avec votre croissance.",
+    items: [
+      "Maintenance site (sécurité, performances, mises à jour)",
+      "Suivi & évolution de vos agents IA",
+      "Gestion continue de vos automatisations N8n",
+      "Accompagnement stratégique mensuel",
+    ],
+  },
+];
 
 export const PAIN_SECTION = {
   label: "Diagnostic",

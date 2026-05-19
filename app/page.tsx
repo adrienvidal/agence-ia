@@ -3,6 +3,7 @@ import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { ToolsBar } from "@/components/ToolsBar";
 import { PainSection } from "@/components/PainSection";
+import { ServicesSection } from "@/components/ServicesSection";
 import { RealisationsSection } from "@/components/RealisationsSection";
 import { ProcessSection } from "@/components/ProcessSection";
 import { FounderSection } from "@/components/FounderSection";
@@ -30,6 +31,7 @@ export default function Home() {
       <Hero />
       <ToolsBar />
       <PainSection />
+      <ServicesSection />
       <RealisationsSection />
       <ProcessSection />
       <FounderSection />
