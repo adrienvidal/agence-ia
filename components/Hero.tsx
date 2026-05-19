@@ -54,14 +54,6 @@ export function Hero() {
 
           <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <div className="flex text-primary">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
-                ))}
-              </div>
-              {HERO.social_proof}
-            </div>
-            <div className="flex items-center gap-2">
               <Shield className="h-4 w-4 text-primary" />
               {HERO.gdpr}
             </div>
@@ -77,7 +69,7 @@ export function Hero() {
                   key={client.name}
                   src={client.logo}
                   alt={client.name}
-                  className="h-7 w-auto object-contain opacity-40 [filter:brightness(0)_invert(1)]"
+                  className="h-10 w-auto object-contain opacity-55 filter-[brightness(0)_invert(1)]"
                 />
               ))}
             </div>
