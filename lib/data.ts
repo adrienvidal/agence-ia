@@ -276,26 +276,76 @@ export const CLIENTS = ["Chanel", "Fnac", "Darty", "Prisma Media", "Yves Rocher"
 export const FAQ = [
   {
     q: "Comment se passe une mission concrètement ?",
-    a: "On commence par un audit gratuit de 30 min pour cartographier vos process. Ensuite je vous envoie une proposition sur-mesure sous 48h. Après validation, le projet démarre dans la semaine.",
+    a: `Tout commence par un appel de 30 minutes, gratuit et sans engagement. 
+L'objectif est simple : comprendre ce qui freine votre croissance et voir 
+si on peut y remédier ensemble. Pas de pitch, pas de pression commerciale.
+
+Si votre situation correspond à ce qu'on fait, on vous propose un devis 
+sur-mesure. Vous validez, on démarre dans les 48h.
+
+Chaque mission inclut une phase de diagnostic approfondi — on cartographie 
+vos processus, on identifie les points de friction et on construit la 
+solution adaptée à votre réalité, pas à un template.`,
   },
   {
     q: "Quels outils utilisez-vous ?",
-    a: "N8n pour les automatisations, OpenAI / Anthropic pour les agents IA, Next.js + Tailwind pour les sites, Notion comme CRM et espace de suivi client, Vercel pour le déploiement.",
+    a: `On s'adapte à votre environnement existant. Pas question de tout 
+reconstruire ou de vous imposer des outils que vous ne maîtrisez pas.
+
+Notre stack principal tourne autour de N8N pour l'automatisation, 
+orchestré avec vos outils du quotidien — Notion, Google Workspace, 
+votre CRM. Pour les agents IA, on utilise des modèles hébergés en Europe, 
+conformes RGPD.
+
+Le choix final dépend toujours de votre projet et de vos contraintes. 
+On choisit ce qui est juste pour vous, pas ce qui est tendance.`,
   },
   {
     q: "Combien de temps prend la livraison ?",
-    a: "Entre 1 et 4 semaines selon la complexité. Un agent IA Starter = 1 semaine. Un système complet avec intégrations = 3 à 4 semaines.",
+    a: `Une automatisation ciblée peut être opérationnelle en quelques jours. 
+Un système complet — agent IA + intégrations + site — demande généralement 
+2 à 4 semaines.
+
+Les délais sont définis ensemble lors de l'onboarding, une fois qu'on a 
+une vision claire du périmètre. Aucun délai annoncé au hasard.
+
+Si un imprévu technique survient, vous êtes informé immédiatement. 
+La transparence fait partie du contrat.`,
   },
   {
     q: "Ai-je besoin de compétences techniques ?",
-    a: "Aucune. Je livre avec une documentation complète et une session de prise en main. Vous pouvez tout piloter depuis Notion.",
+    a: `Aucune. C'est précisément pour ça que vous faites appel à quelqu'un 
+d'autre.
+
+Tout ce qu'on livre est documenté et pris en main avec vous. 
+L'objectif : que vous soyez autonome dès la livraison, sans dépendre 
+de nous pour les opérations du quotidien.
+
+Pour les évolutions et la maintenance, c'est une autre histoire — 
+et c'est là qu'une relation long terme prend tout son sens.`,
   },
   {
     q: "Que se passe-t-il après la livraison ?",
-    a: "Je reste disponible pour des ajustements pendant 30 jours. Un retainer mensuel est disponible pour continuer à optimiser et développer le système.",
+    a: `La livraison n'est pas une fin — c'est un point de départ. 
+Un système digital doit évoluer avec votre activité, pas rester figé 
+le jour de sa mise en ligne.
+
+On propose un accompagnement mensuel pour monitorer vos automatisations, 
+les faire évoluer et en ajouter de nouvelles au fil de votre croissance.
+
+L'objectif à terme : que vous puissiez scaler sans jamais être ralenti 
+par l'opérationnel.`,
   },
   {
-    q: "Mes données passent-elles par ChatGPT ?",
-    a: "Non. Selon votre choix, vos données peuvent transiter uniquement par des modèles hébergés en Europe (Mistral, Azure EU). Je configure ça dès le départ.",
+    q: "Mes données sont-elles en sécurité ?",
+    a: `Vos données restent en Europe, point final. 
+
+On n'utilise aucune plateforme américaine pour traiter vos informations. 
+Nos solutions sont hébergées sur des serveurs européens, conformes RGPD, 
+avec des modèles IA dédiés à votre projet — jamais mutualisés.
+
+Vous bénéficiez des meilleures performances du marché sans faire de 
+compromis sur la confidentialité. Ce n'est pas une option, c'est 
+la base.`,
   },
 ];
