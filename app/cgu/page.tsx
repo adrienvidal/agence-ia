@@ -27,8 +27,8 @@ export default function CGU() {
             <h2 className="font-display text-lg font-semibold text-foreground">Objet</h2>
             <p className="mt-3">
               Les présentes Conditions Générales d&apos;Utilisation (CGU) régissent l&apos;accès et
-              l&apos;utilisation du site viloris.io, édité par WEBNROLLS EURL, nom commercial Viloris.io (Adrien Vidal), Paris,
-              France.
+              l&apos;utilisation du site viloris.io, édité par WEBNROLLS EURL, nom commercial
+              Viloris.io (Adrien Vidal), Paris, France.
             </p>
           </section>
 
