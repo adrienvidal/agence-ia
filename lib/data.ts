@@ -57,16 +57,24 @@ export const TOOLS_BAR = {
   label: "Les outils que j'utilise au quotidien",
 };
 
-export const TOOLS = [
-  "N8n",
-  "OpenAI",
-  "Next.js",
-  "Notion",
-  "Vercel",
-  "Supabase",
-  "GitHub",
-  "Anthropic",
-  "Tailwind",
+export const TOOLS: { label: string; icon?: string }[] = [
+  { label: "N8n", icon: "SiN8n" },
+  { label: "Make", icon: "SiMake" },
+  { label: "Zapier", icon: "SiZapier" },
+  { label: "LangChain", icon: "SiLangchain" },
+  { label: "Hugging Face", icon: "SiHuggingface" },
+  { label: "Python", icon: "SiPython" },
+  { label: "Anthropic", icon: "SiAnthropic" },
+  { label: "Next.js", icon: "SiNextdotjs" },
+  { label: "Supabase", icon: "SiSupabase" },
+  { label: "PostgreSQL", icon: "SiPostgresql" },
+  { label: "Stripe", icon: "SiStripe" },
+  { label: "Airtable", icon: "SiAirtable" },
+  { label: "Notion", icon: "SiNotion" },
+  { label: "Linear", icon: "SiLinear" },
+  { label: "Vercel", icon: "SiVercel" },
+  { label: "GitHub", icon: "SiGithub" },
+  { label: "Tailwind", icon: "SiTailwindcss" },
 ];
 
 export const PAIN_SECTION = {
