@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { CALENDLY_URL, NAV_LINKS } from "@/lib/data";
 
@@ -10,9 +11,8 @@ export function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/40 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-8">
-        <a href="#top" className="flex items-center gap-2 font-display text-base font-semibold tracking-tight">
-          <span className="grid h-7 w-7 place-items-center rounded-md bg-primary text-primary-foreground text-xs font-bold">AV</span>
-          Adrien Vidal
+        <a href="#top" className="flex items-center">
+          <Image src="/logo-viloris-dark.png" alt="Viloris" width={827} height={117} className="h-8 w-auto" priority />
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
