@@ -64,6 +64,22 @@ export function Hero() {
               {HERO.gdpr}
             </div>
           </div>
+
+          <div className="mt-10 border-t border-border/30 pt-8">
+            <p className="mb-5 text-xs italic leading-relaxed text-muted-foreground">
+              {HERO.clients_tagline}
+            </p>
+            <div className="flex flex-wrap items-center gap-10">
+              {HERO.clients.map((client) => (
+                <img
+                  key={client.name}
+                  src={client.logo}
+                  alt={client.name}
+                  className="h-7 w-auto object-contain opacity-40 [filter:brightness(0)_invert(1)]"
+                />
+              ))}
+            </div>
+          </div>
         </motion.div>
 
         <motion.div

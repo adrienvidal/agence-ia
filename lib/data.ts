@@ -138,6 +138,14 @@ export const HERO = {
     stack_label: "Stack signature",
     stack: ["N8n", "OpenAI", "Anthropic", "Next.js", "Notion"],
   },
+  clients_tagline:
+    "10 ans d'exigence technique pour les grandes marques. Aujourd'hui au service des PME qui veulent le même niveau sans les délais d'une agence.",
+  clients: [
+    { name: "Chanel", logo: "/clients/chanel.webp" },
+    { name: "Fnac-Darty", logo: "/clients/fnacdarty.webp" },
+    { name: "Prisma Media", logo: "/clients/prismamedia.png" },
+    { name: "Yves Rocher", logo: "/clients/yvesrocher.webp" },
+  ],
 };
 
 export const SERVICES_SECTION = {
