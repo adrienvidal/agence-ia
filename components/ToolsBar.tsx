@@ -18,7 +18,7 @@ export function ToolsBar() {
       >
         <div className="flex w-max animate-marquee gap-x-10 hover:[animation-play-state:paused]">
           {items.map((t, i) => {
-            const Icon = t.icon ? (Si as Record<string, React.ElementType>)[t.icon] : null;
+            const Icon = t.icon ? (Si as unknown as Record<string, React.ElementType>)[t.icon] : null;
             return Icon ? (
               <span
                 key={i}
