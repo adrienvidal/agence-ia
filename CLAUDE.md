@@ -45,6 +45,8 @@ Section rendering order in `page.tsx`: `Nav → Hero → ToolsBar → PainSectio
 
 **shadcn/ui** is configured via [components.json](components.json) (style: new-york, no RSC). To add components: `npx shadcn@latest add <component>` — they land in `components/ui/`.
 
+**Static assets** live in `public/`. Client logos are in `public/clients/` (webp/png). On the dark-only site, logos are rendered white via `[filter:brightness(0)_invert(1)]` + `opacity-40`.
+
 **All static content** (copy, URLs, project data, FAQ) lives in [lib/data.ts](lib/data.ts). Edit there first when updating site content. `CALENDLY_URL` is the primary CTA used across multiple components.
 
 Every text visible on the site is exported from `lib/data.ts` — no hardcoded strings in components. Exports are organized by section:
@@ -54,7 +56,7 @@ Every text visible on the site is exported from `lib/data.ts` — no hardcoded s
 | `META`                                                   | Page metadata + OpenGraph                       |
 | `NAV` / `NAV_LINKS`                                      | Navigation bar                                  |
 | `TOOLS_BAR` / `TOOLS`                                    | Tools marquee                                   |
-| `HERO`                                                   | Hero section (badge, headline, CTA, card stats) |
+| `HERO`                                                   | Hero section (badge, headline, CTA, card stats, client logos) |
 | `PAIN_SECTION` / `PAINS`                                 | Diagnostic section                              |
 | `REALISATIONS_SECTION` / `PROJECTS` / `UPCOMING_PROJECT` | Réalisations section                            |
 | `PROCESS_SECTION` / `PROCESS_STEPS`                      | Process section                                 |

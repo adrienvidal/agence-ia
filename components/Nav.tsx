@@ -13,7 +13,7 @@ export function Nav() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-8">
         <a href="#top" className="flex items-center">
           <Image
-            src="/logo-viloris-dark.png"
+            src="/logo-viloris-dark.webp"
             alt="Viloris"
             width={827}
             height={117}

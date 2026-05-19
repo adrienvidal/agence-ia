@@ -143,7 +143,7 @@ export const HERO = {
   clients: [
     { name: "Chanel", logo: "/clients/chanel.webp" },
     { name: "Fnac-Darty", logo: "/clients/fnacdarty.webp" },
-    { name: "Prisma Media", logo: "/clients/prismamedia.png" },
+    { name: "Prisma Media", logo: "/clients/prismamedia.webp" },
     { name: "Yves Rocher", logo: "/clients/yvesrocher.webp" },
   ],
 };
