@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Star, Clock } from "lucide-react";
 import { CALENDLY_URL } from "@/lib/data";
@@ -5,7 +7,6 @@ import { CALENDLY_URL } from "@/lib/data";
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-32 banner-bg">
-      {/* Ambient blobs */}
       <div className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-[oklch(0.86_0.10_200/0.18)] blur-[120px]" />
       <div className="pointer-events-none absolute top-20 right-0 h-[400px] w-[400px] rounded-full bg-[oklch(0.78_0.13_240/0.18)] blur-[100px]" />
       <div className="absolute inset-0 grain opacity-40" />
@@ -27,8 +28,8 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-lg text-foreground/75 leading-relaxed text-balance">
-            J'aide les <strong className="text-foreground font-semibold">entreprises</strong> à se doter
-            d'une <strong className="text-foreground font-semibold">infrastructure web et IA</strong> performante —
+            J&apos;aide les <strong className="text-foreground font-semibold">entreprises</strong> à se doter
+            d&apos;une <strong className="text-foreground font-semibold">infrastructure web et IA</strong> performante —
             pour scaler sans recruter.
           </p>
 
@@ -66,7 +67,6 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Right card */}
         <motion.div
           initial={{ opacity: 0, y: 30, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}

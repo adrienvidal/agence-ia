@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 import { CLIENTS } from "@/lib/data";
@@ -28,7 +30,7 @@ export function FounderSection() {
             </div>
 
             <div className="mt-8">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">Ils m'ont fait confiance</div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">Ils m&apos;ont fait confiance</div>
               <div className="mt-4 flex flex-wrap gap-2">
                 {CLIENTS.map((c) => (
                   <span key={c} className="rounded-lg border border-border bg-background/60 px-3 py-1.5 font-display text-sm text-foreground/85">
@@ -41,9 +43,9 @@ export function FounderSection() {
 
           <div className="space-y-6">
             <p className="text-lg leading-relaxed text-foreground/90 text-balance">
-              J'ai passé 10 ans à construire des interfaces exigeantes pour
-              Chanel, Darty, Fnac. Cette rigueur technique, je l'applique
-              aujourd'hui à l'automatisation IA pour les PME qui veulent
+              J&apos;ai passé 10 ans à construire des interfaces exigeantes pour
+              Chanel, Darty, Fnac. Cette rigueur technique, je l&apos;applique
+              aujourd&apos;hui à l&apos;automatisation IA pour les PME qui veulent
               scaler sans recruter.
             </p>
             <p className="text-lg leading-relaxed text-foreground/90 text-balance">
@@ -55,8 +57,8 @@ export function FounderSection() {
             <blockquote className="relative mt-8 rounded-3xl border border-primary/30 bg-primary/5 p-7">
               <Quote className="absolute -top-3 left-6 h-6 w-6 rounded-full bg-primary p-1 text-primary-foreground" />
               <p className="font-display text-xl leading-snug text-foreground text-balance">
-                « On n'automatise pas pour remplacer l'humain. On le libère
-                pour qu'il se concentre sur ce qui compte vraiment. »
+                « On n&apos;automatise pas pour remplacer l&apos;humain. On le libère
+                pour qu&apos;il se concentre sur ce qui compte vraiment. »
               </p>
               <footer className="mt-4 text-sm text-muted-foreground">
                 — Adrien Vidal · Fondateur, WEBNROLLS

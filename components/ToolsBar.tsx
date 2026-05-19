@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { TOOLS } from "@/lib/data";
 
@@ -6,7 +8,7 @@ export function ToolsBar() {
     <section className="border-y border-border/60 bg-surface/30 py-10">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          Les outils que j'utilise au quotidien
+          Les outils que j&apos;utilise au quotidien
         </div>
         <motion.div
           initial={{ opacity: 0 }}

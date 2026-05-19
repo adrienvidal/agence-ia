@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus, ShieldCheck } from "lucide-react";
@@ -69,7 +71,7 @@ export function FaqSection() {
           <div>
             <h3 className="font-display text-xl font-semibold">Satisfait, ou on corrige.</h3>
             <p className="mt-2 text-sm text-foreground/85 leading-relaxed">
-              Je ne lâche pas un projet tant que vous n'êtes pas 100% satisfait du résultat final.
+              Je ne lâche pas un projet tant que vous n&apos;êtes pas 100% satisfait du résultat final.
             </p>
           </div>
         </motion.div>

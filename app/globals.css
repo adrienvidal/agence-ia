@@ -1,5 +1,4 @@
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -38,7 +37,6 @@
 
 :root {
   --radius: 0.875rem;
-  /* LinkedIn banner identity: deep black → graphite, mint→cyan→blue accents */
   --background: oklch(0.13 0.005 260);
   --foreground: oklch(0.98 0.005 240);
   --surface: oklch(0.17 0.006 260);

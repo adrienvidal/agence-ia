@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ArrowRight, Infinity as InfinityIcon } from "lucide-react";
 import { CALENDLY_URL, PROCESS_STEPS } from "@/lib/data";

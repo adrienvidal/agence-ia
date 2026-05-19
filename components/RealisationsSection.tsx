@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { CALENDLY_URL, PROJECTS, UPCOMING_PROJECT } from "@/lib/data";
@@ -15,7 +17,7 @@ export function RealisationsSection() {
         >
           <div className="text-xs uppercase tracking-[0.2em] text-primary">Réalisations</div>
           <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl text-balance">
-            Ce qu'on a déjà construit
+            Ce qu&apos;on a déjà construit
           </h2>
         </motion.div>
 

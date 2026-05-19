@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { CALENDLY_URL, NAV_LINKS } from "@/lib/data";

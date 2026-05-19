@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { CALENDLY_URL } from "@/lib/data";
@@ -22,7 +24,7 @@ export function CtaFinal() {
           <span className="gradient-text">Discutons-en.</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-          Réservez un audit gratuit. Pas de pression commerciale, que de l'expertise.
+          Réservez un audit gratuit. Pas de pression commerciale, que de l&apos;expertise.
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-3">
@@ -32,7 +34,7 @@ export function CtaFinal() {
             rel="noreferrer"
             className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-base font-medium text-primary-foreground transition hover:opacity-90 glow"
           >
-            Lancer l'audit gratuit
+            Lancer l&apos;audit gratuit
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
           </a>
           <div className="text-xs text-muted-foreground">Audit 100% gratuit et sans engagement</div>

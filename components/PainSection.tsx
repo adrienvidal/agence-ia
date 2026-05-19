@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Clock, Database, TrendingDown, ArrowRight } from "lucide-react";
 import { CALENDLY_URL, PAINS } from "@/lib/data";
@@ -17,7 +19,7 @@ export function PainSection() {
         >
           <div className="text-xs uppercase tracking-[0.2em] text-primary">Diagnostic</div>
           <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl text-balance">
-            Votre entreprise est freinée par l'opérationnel.
+            Votre entreprise est freinée par l&apos;opérationnel.
           </h2>
           <p className="mt-5 text-lg text-muted-foreground">
             Vous scalez, mais vos process ne suivent pas…
