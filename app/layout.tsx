@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   description:
     "Développeur senior (Chanel, Darty, Fnac) spécialisé en automatisation IA et agents sur-mesure pour les PME qui veulent scaler sans recruter.",
   authors: [{ name: "Adrien Vidal" }],
+  icons: {
+    icon: "/favicon-viloris.jpg",
+    apple: "/favicon-viloris.jpg",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
