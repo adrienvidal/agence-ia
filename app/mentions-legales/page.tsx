@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Mentions légales — Adrien Vidal · WEBNROLLS",
+  title: "Mentions légales — Viloris.io",
   description: "Mentions légales du site viloris.io — WEBNROLLS EURL, Paris.",
 };
 
@@ -23,7 +23,7 @@ export default function MentionsLegales() {
           <section>
             <h2 className="font-display text-lg font-semibold text-foreground">Éditeur du site</h2>
             <div className="mt-3 space-y-1">
-              <p>WEBNROLLS EURL</p>
+              <p>WEBNROLLS EURL — nom commercial : Viloris.io</p>
               <p>Adrien Vidal — Développeur IA & Automatisation</p>
               <p>Paris, France</p>
               <p>
@@ -32,8 +32,8 @@ export default function MentionsLegales() {
                   contact@viloris.io
                 </a>
               </p>
-              <p>SIRET : [à compléter]</p>
-              <p>N° TVA intracommunautaire : [à compléter]</p>
+              <p>SIRET : 929 895 290 00013</p>
+              <p>N° TVA intracommunautaire : FR26 929 895 290</p>
             </div>
           </section>
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Politique de confidentialité — Adrien Vidal · WEBNROLLS",
+  title: "Politique de confidentialité — Viloris.io",
   description: "Politique de confidentialité et traitement des données personnelles — viloris.io.",
 };
 
@@ -26,7 +26,7 @@ export default function Confidentialite() {
               Responsable du traitement
             </h2>
             <div className="mt-3 space-y-1">
-              <p>WEBNROLLS EURL — Adrien Vidal</p>
+              <p>Viloris.io (WEBNROLLS EURL) — Adrien Vidal</p>
               <p>Paris, France</p>
               <p>
                 Contact :{" "}
