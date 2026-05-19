@@ -24,103 +24,6 @@ export const NAV_LINKS = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export const TOOLS = [
-  "N8n",
-  "OpenAI",
-  "Next.js",
-  "Notion",
-  "Vercel",
-  "Supabase",
-  "GitHub",
-  "Anthropic",
-  "Tailwind",
-];
-
-export const TOOLS_BAR = {
-  label: "Les outils que j'utilise au quotidien",
-};
-
-export const PAINS = [
-  {
-    title: "Temps perdu",
-    body: "Copier-coller des données, répondre aux mêmes e-mails, gérer la facturation à la main. Vous passez vos journées à alimenter des tâches qui pourraient tourner sans vous.",
-  },
-  {
-    title: "Données éparpillées",
-    body: "Notion, CRM, Google Sheets — chaque outil vit dans son coin. Résultat : aucune vision d'ensemble, et des décisions prises à l'aveugle.",
-  },
-  {
-    title: "Trafic & acquisition",
-    body: "Votre produit est bon mais personne ne le trouve. Pas de stratégie d'acquisition — vous dépendez du bouche-à-oreille.",
-  },
-];
-
-export const PROJECTS = [
-  {
-    name: "LeadBot Pro",
-    tags: ["Agent IA sur-mesure", "N8n", "RAG"],
-    subtitle: "Qualification de leads automatique",
-    description:
-      "Un agent IA qui qualifie les leads entrants 24h/24, répond aux questions fréquentes et prend les rendez-vous sans intervention humaine.",
-    problem:
-      "L'équipe commerciale perdait 3h par jour à trier des leads non qualifiés et à répondre aux mêmes questions.",
-    solution:
-      "Un workflow N8n couplé à un agent RAG qui analyse, qualifie et route chaque lead vers le bon interlocuteur.",
-    metric: { value: "3h", label: "Gain de temps par jour" },
-  },
-  {
-    name: "SyncFlow",
-    tags: ["Automatisation", "CRM", "Reporting"],
-    subtitle: "Synchronisation CRM × Notion × Email",
-    description:
-      "Toutes les données client centralisées et synchronisées en temps réel. Reporting automatique chaque lundi matin.",
-    problem:
-      "Trois outils qui ne se parlaient pas. Des doublons, des erreurs de saisie, aucun rapport sur lequel s'appuyer.",
-    solution:
-      "Un pipeline N8n bidirectionnel qui synchronise tout automatiquement et génère des rapports via IA.",
-    metric: { value: "100%", label: "Données fiables, zéro saisie manuelle" },
-  },
-];
-
-export const UPCOMING_PROJECT = {
-  title: "Réceptionniste Vocal IA",
-  status: "En développement",
-  description: "Agent téléphonique 24/7 · en cours de build",
-};
-
-export const PROCESS_STEPS = [
-  {
-    n: "01",
-    title: "Audit gratuit 30 min",
-    body: "On identifie vos process chronophages et vos vrais points de friction. Zéro pitch.",
-  },
-  {
-    n: "02",
-    title: "Appel d'onboarding",
-    body: "On définit la solution adaptée à votre activité, votre budget et vos objectifs.",
-  },
-  {
-    n: "03",
-    title: "Solution sur-mesure",
-    body: "Je construis le système. Chaque automatisation est documentée avant d'être développée. Pas un template.",
-  },
-  {
-    n: "04",
-    title: "Démarrage du projet",
-    body: "Vous signez le devis et réglez 50% à la commande. On démarre dans les 48h.",
-  },
-  {
-    n: "05",
-    title: "Suivi en temps réel",
-    body: "Un espace Notion dédié. Rapport chaque fin de semaine.",
-  },
-  {
-    n: "06",
-    title: "Livraison & solde",
-    body: "Livraison clé en main. Les 50% restants sont réglés uniquement quand vous êtes 100% satisfait.",
-  },
-];
-
 export const HERO = {
   badge: "Automatisations & Agents IA",
   headline: "Travaillez moins.",
@@ -149,6 +52,44 @@ export const HERO = {
     { name: "Yves Rocher", logo: "/clients/yvesrocher.webp" },
   ],
 };
+
+export const TOOLS_BAR = {
+  label: "Les outils que j'utilise au quotidien",
+};
+
+export const TOOLS = [
+  "N8n",
+  "OpenAI",
+  "Next.js",
+  "Notion",
+  "Vercel",
+  "Supabase",
+  "GitHub",
+  "Anthropic",
+  "Tailwind",
+];
+
+export const PAIN_SECTION = {
+  label: "Diagnostic",
+  title: "Votre business tourne. Vos systèmes, non.",
+  subtitle: "Vous avancez, mais vous portez tout à bout de bras.",
+  cta: "Construire mon infrastructure digitale",
+};
+
+export const PAINS = [
+  {
+    title: "Vous êtes le système",
+    body: "Relances manuelles, devis à recopier, suivis qui tombent à l'eau — sans vous, rien ne tourne. Votre croissance est plafonnée par votre propre disponibilité.",
+  },
+  {
+    title: "Vos outils ne se parlent pas",
+    body: "CRM, agenda, formulaires, Google Sheets — chaque brique est isolée. Résultat : vous saisissez deux fois les mêmes infos et vous pilotez à l'instinct.",
+  },
+  {
+    title: "Trafic & Acquisition",
+    body: "Votre offre est solide, mais votre visibilité repose sur le réseau et le hasard. Pas de machine d'acquisition — pas de croissance prévisible.",
+  },
+];
 
 export const SERVICES_SECTION = {
   label: "Services",
@@ -202,19 +143,45 @@ export const SERVICES = [
 export const SERVICES_LIAISON =
   "La plupart des clients commencent par un agent IA. Le reste suit naturellement.";
 
-export const PAIN_SECTION = {
-  label: "Diagnostic",
-  title: "Votre entreprise est freinée par l'opérationnel.",
-  subtitle: "Vous scalez, mais vos process ne suivent pas…",
-  cta: "Automatiser mes process",
-};
-
 export const REALISATIONS_SECTION = {
   label: "Réalisations",
   title: "Ce qu'on a déjà construit",
   cta: "Lancer votre projet",
   problem_label: "Problème",
   solution_label: "Solution",
+};
+
+export const PROJECTS = [
+  {
+    name: "LeadBot Pro",
+    tags: ["Agent IA sur-mesure", "N8n", "RAG"],
+    subtitle: "Qualification de leads automatique",
+    description:
+      "Un agent IA qui qualifie les leads entrants 24h/24, répond aux questions fréquentes et prend les rendez-vous sans intervention humaine.",
+    problem:
+      "L'équipe commerciale perdait 3h par jour à trier des leads non qualifiés et à répondre aux mêmes questions.",
+    solution:
+      "Un workflow N8n couplé à un agent RAG qui analyse, qualifie et route chaque lead vers le bon interlocuteur.",
+    metric: { value: "3h", label: "Gain de temps par jour" },
+  },
+  {
+    name: "SyncFlow",
+    tags: ["Automatisation", "CRM", "Reporting"],
+    subtitle: "Synchronisation CRM × Notion × Email",
+    description:
+      "Toutes les données client centralisées et synchronisées en temps réel. Reporting automatique chaque lundi matin.",
+    problem:
+      "Trois outils qui ne se parlaient pas. Des doublons, des erreurs de saisie, aucun rapport sur lequel s'appuyer.",
+    solution:
+      "Un pipeline N8n bidirectionnel qui synchronise tout automatiquement et génère des rapports via IA.",
+    metric: { value: "100%", label: "Données fiables, zéro saisie manuelle" },
+  },
+];
+
+export const UPCOMING_PROJECT = {
+  title: "Réceptionniste Vocal IA",
+  status: "En développement",
+  description: "Agent téléphonique 24/7 · en cours de build",
 };
 
 export const PROCESS_SECTION = {
@@ -225,6 +192,39 @@ export const PROCESS_SECTION = {
     "Je ne disparais pas après la livraison. Un retainer est disponible pour optimiser en continu, ajouter de nouvelles automatisations et soutenir votre croissance sur la durée.",
   cta: "Discuter de mon projet",
 };
+
+export const PROCESS_STEPS = [
+  {
+    n: "01",
+    title: "Audit gratuit 30 min",
+    body: "On identifie vos process chronophages et vos vrais points de friction. Zéro pitch.",
+  },
+  {
+    n: "02",
+    title: "Appel d'onboarding",
+    body: "On définit la solution adaptée à votre activité, votre budget et vos objectifs.",
+  },
+  {
+    n: "03",
+    title: "Solution sur-mesure",
+    body: "Je construis le système. Chaque automatisation est documentée avant d'être développée. Pas un template.",
+  },
+  {
+    n: "04",
+    title: "Démarrage du projet",
+    body: "Vous signez le devis et réglez 50% à la commande. On démarre dans les 48h.",
+  },
+  {
+    n: "05",
+    title: "Suivi en temps réel",
+    body: "Un espace Notion dédié. Rapport chaque fin de semaine.",
+  },
+  {
+    n: "06",
+    title: "Livraison & solde",
+    body: "Livraison clé en main. Les 50% restants sont réglés uniquement quand vous êtes 100% satisfait.",
+  },
+];
 
 export const FOUNDER_SECTION = {
   label: "Le mot du fondateur",
@@ -238,40 +238,12 @@ export const FOUNDER_SECTION = {
   ],
 };
 
+export const CLIENTS = ["Chanel", "Fnac", "Darty", "Prisma Media", "Yves Rocher"];
+
 export const FAQ_SECTION = {
   label: "FAQ",
   title: "Vos questions, nos réponses",
 };
-
-export const CTA_FINAL = {
-  headline: "Une tâche vous fait perdre des heures ?",
-  headline_accent: "Discutons-en.",
-  description: "Réservez un audit gratuit. Aucune pression commerciale, uniquement de l'expertise.",
-  cta: "Lancer l'audit gratuit",
-  subtext: "Audit 100% gratuit et sans engagement",
-};
-
-export const FOOTER = {
-  address: {
-    street: "4 place Auguste Métivier",
-    city: "75020 Paris",
-  },
-  contact: [{ label: "contact@viloris.io", href: "mailto:contact@viloris.io" }],
-  ressources: [{ label: "FAQ", href: "#faq" }],
-  legal: [
-    { label: "Mentions légales", href: "/mentions-legales" },
-    { label: "Condition générale d'utilisation", href: "/cgu" },
-    { label: "Politique de confidentialité", href: "/confidentialite" },
-    { label: "Politique de cookies (UE)", href: "/cookies" },
-  ],
-  subfooter: {
-    text: "© Tous droits réservés — Site réalisé par ",
-    linkLabel: "Viloris.io",
-    linkHref: "https://viloris.io",
-  },
-};
-
-export const CLIENTS = ["Chanel", "Fnac", "Darty", "Prisma Media", "Yves Rocher"];
 
 export const FAQ = [
   {
@@ -325,3 +297,31 @@ On n'utilise aucune plateforme américaine pour traiter vos informations. Nos so
 Performances maximales sans compromis sur la confidentialité. Ce n'est pas une option.`,
   },
 ];
+
+export const CTA_FINAL = {
+  headline: "Une tâche vous fait perdre des heures ?",
+  headline_accent: "Discutons-en.",
+  description: "Réservez un audit gratuit. Aucune pression commerciale, uniquement de l'expertise.",
+  cta: "Lancer l'audit gratuit",
+  subtext: "Audit 100% gratuit et sans engagement",
+};
+
+export const FOOTER = {
+  address: {
+    street: "4 place Auguste Métivier",
+    city: "75020 Paris",
+  },
+  contact: [{ label: "contact@viloris.io", href: "mailto:contact@viloris.io" }],
+  ressources: [{ label: "FAQ", href: "#faq" }],
+  legal: [
+    { label: "Mentions légales", href: "/mentions-legales" },
+    { label: "Condition générale d'utilisation", href: "/cgu" },
+    { label: "Politique de confidentialité", href: "/confidentialite" },
+    { label: "Politique de cookies (UE)", href: "/cookies" },
+  ],
+  subfooter: {
+    text: "© Tous droits réservés — Site réalisé par ",
+    linkLabel: "Viloris.io",
+    linkHref: "https://viloris.io",
+  },
+};
