@@ -1,3 +1,4 @@
+export const SITE_URL = "https://viloris.io";
 export const CALENDLY_URL = "https://calendly.com/adrienvidal";
 
 export const META = {
@@ -241,11 +242,11 @@ export const CTA_FINAL = {
 };
 
 export const FOOTER = {
-  copyright: "© 2025 Adrien Vidal · WEBNROLLS EURL · Paris",
+  copyright: "© 2026 Adrien Vidal · WEBNROLLS EURL · Paris",
   links: [
     { label: "FAQ", href: "#faq" },
-    { label: "Mentions légales", href: "#" },
-    { label: "Politique de confidentialité", href: "#" },
+    { label: "Mentions légales", href: "/mentions-legales" },
+    { label: "Politique de confidentialité", href: "/confidentialite" },
   ],
 };
 

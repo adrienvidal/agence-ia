@@ -31,6 +31,8 @@ export function FaqSection() {
               <div key={item.q}>
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${i}`}
                   className="flex w-full items-center justify-between gap-4 p-6 text-left"
                 >
                   <span className="font-display text-base font-medium md:text-lg">{item.q}</span>
@@ -41,6 +43,8 @@ export function FaqSection() {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      id={`faq-answer-${i}`}
+                      role="region"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
