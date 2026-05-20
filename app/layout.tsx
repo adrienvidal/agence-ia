@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ContactModalProvider } from "@/lib/contact-modal-context";
-import { ContactModal } from "@/components/ContactModal";
+import { ModalContainer } from "@/components/ModalContainer";
 import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body suppressHydrationWarning>
         <ContactModalProvider>
           {children}
-          <ContactModal />
+          <ModalContainer />
         </ContactModalProvider>
         <Analytics />
       </body>
