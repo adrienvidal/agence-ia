@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { CALENDLY_URL, CLIENTS, FOUNDER_SECTION } from "@/lib/data";
+import { CALENDLY_URL, FOUNDER_SECTION } from "@/lib/data";
 
 export function FounderSection() {
   return (
@@ -31,21 +31,19 @@ export function FounderSection() {
               </div>
             </div>
 
-            <div className="mt-8">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">
-                {FOUNDER_SECTION.clients_label}
-              </div>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {CLIENTS.map((c) => (
-                  <span
-                    key={c}
-                    className="rounded-lg border border-border bg-background/60 px-3 py-1.5 font-display text-sm text-foreground/85"
-                  >
-                    {c}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <blockquote className="mt-8 border-l-2 border-primary/60 pl-4">
+              <p className="text-sm leading-relaxed text-foreground/80 italic">
+                &ldquo;{FOUNDER_SECTION.testimonial.quote}&rdquo;
+              </p>
+              <footer className="mt-3">
+                <span className="text-sm font-medium text-foreground">
+                  {FOUNDER_SECTION.testimonial.author}
+                </span>
+                <span className="ml-2 text-xs text-muted-foreground">
+                  {FOUNDER_SECTION.testimonial.role}
+                </span>
+              </footer>
+            </blockquote>
           </div>
 
           <div className="space-y-6">

@@ -239,11 +239,16 @@ export const FOUNDER_SECTION = {
   name: "Adrien Vidal",
   company: "Fondateur · WEBNROLLS EURL",
   role: "Développeur IA & Automatisation",
-  clients_label: "Ils m'ont fait confiance",
   bio: [
     "J'ai passé 10 ans à construire des interfaces exigeantes pour Chanel, Darty, Fnac. Cette rigueur technique, je l'applique à l'automatisation IA pour les PME qui veulent scaler sans recruter.",
     "L'objectif à chaque mission : comprendre ce qui freine vraiment votre croissance et construire des systèmes sur-mesure qui vous redonnent du temps.",
   ],
+  testimonial: {
+    quote:
+      "Il est intervenu sur des projets de A à Z, dans un contexte exigeant, avec des contraintes fortes de performance.",
+    author: "Marine Benoit-Jannin",
+    role: "Lead développeur — Chanel",
+  },
 };
 
 export const CLIENTS = ["Chanel", "Fnac", "Darty", "Prisma Media", "Yves Rocher"];
