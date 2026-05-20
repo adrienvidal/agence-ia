@@ -16,7 +16,10 @@ export function ToolsBar() {
         transition={{ duration: 0.6 }}
         className="mx-auto max-w-4xl overflow-hidden mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
       >
-        <div className="flex w-max animate-marquee gap-x-10 hover:[animation-play-state:paused]">
+        <div
+          className="flex w-max animate-marquee gap-x-10 hover:[animation-play-state:paused]"
+          style={{ willChange: "transform" }}
+        >
           {items.map((t, i) => {
             const Icon = t.icon
               ? (Si as unknown as Record<string, React.ElementType>)[t.icon]

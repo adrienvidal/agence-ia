@@ -75,7 +75,9 @@ export function RealisationsSection() {
                         </span>
                       ))}
                     </div>
-                    <h3 className="mt-4 font-display text-3xl font-semibold md:text-4xl">{p.name}</h3>
+                    <h3 className="mt-4 font-display text-3xl font-semibold md:text-4xl">
+                      {p.name}
+                    </h3>
                     <p className="mt-1 text-sm text-muted-foreground">{p.subtitle}</p>
                     <p className="mt-5 text-base text-foreground/90 leading-relaxed">
                       {p.description}
@@ -104,7 +106,7 @@ export function RealisationsSection() {
 
                     {/* Always visible on desktop, toggle on mobile */}
                     <AnimatePresence initial={false}>
-                      {(isExpanded) && (
+                      {isExpanded && (
                         <motion.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
@@ -117,7 +119,9 @@ export function RealisationsSection() {
                               <div className="text-xs uppercase tracking-wider text-muted-foreground">
                                 {REALISATIONS_SECTION.problem_label}
                               </div>
-                              <p className="mt-2 text-sm text-foreground/85 leading-relaxed">{p.problem}</p>
+                              <p className="mt-2 text-sm text-foreground/85 leading-relaxed">
+                                {p.problem}
+                              </p>
                             </div>
                             <div className="rounded-2xl border border-border bg-background/60 p-4">
                               <div className="text-xs uppercase tracking-wider text-primary">
@@ -138,7 +142,9 @@ export function RealisationsSection() {
                         <div className="text-xs uppercase tracking-wider text-muted-foreground">
                           {REALISATIONS_SECTION.problem_label}
                         </div>
-                        <p className="mt-2 text-sm text-foreground/85 leading-relaxed">{p.problem}</p>
+                        <p className="mt-2 text-sm text-foreground/85 leading-relaxed">
+                          {p.problem}
+                        </p>
                       </div>
                       <div className="rounded-2xl border border-border bg-background/60 p-4">
                         <div className="text-xs uppercase tracking-wider text-primary">

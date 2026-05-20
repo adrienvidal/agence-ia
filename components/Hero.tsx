@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ArrowRight, Shield, Star, CheckCircle2, Loader2, Zap } from "lucide-react";
 import { HERO, SHOW_REALISATIONS } from "@/lib/data";
 import { useContactModal } from "@/lib/contact-modal-context";
@@ -13,14 +13,17 @@ const PROCESS_DURATION = 650;
 const STEP_GAP = 950;
 
 function WorkflowCard() {
+  const prefersReducedMotion = useReducedMotion();
   type StepState = "hidden" | "processing" | "done";
   const [stepStates, setStepStates] = useState<StepState[]>(() =>
-    WORKFLOW_STEPS.map(() => "hidden"),
+    prefersReducedMotion ? WORKFLOW_STEPS.map(() => "done") : WORKFLOW_STEPS.map(() => "hidden"),
   );
-  const [showFooter, setShowFooter] = useState(false);
+  const [showFooter, setShowFooter] = useState(!!prefersReducedMotion);
   const [cycleKey, setCycleKey] = useState(0);
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     setStepStates(WORKFLOW_STEPS.map(() => "hidden"));
     setShowFooter(false);
 
@@ -43,10 +46,10 @@ function WorkflowCard() {
 
     const allDoneAt = REVEAL_DELAY + (WORKFLOW_STEPS.length - 1) * STEP_GAP + PROCESS_DURATION;
     timers.push(setTimeout(() => setShowFooter(true), allDoneAt + 300));
-    timers.push(setTimeout(() => setCycleKey((k) => k + 1), allDoneAt + 3000));
+    timers.push(setTimeout(() => setCycleKey((k) => k + 1), allDoneAt + 5000));
 
     return () => timers.forEach(clearTimeout);
-  }, [cycleKey]);
+  }, [cycleKey, prefersReducedMotion]);
 
   return (
     <div className="rounded-3xl border border-border bg-gradient-to-br from-surface to-background shadow-2xl overflow-hidden">
@@ -138,15 +141,22 @@ function WorkflowCard() {
 
 export function Hero() {
   const { openModal } = useContactModal();
+  const prefersReducedMotion = useReducedMotion();
   return (
     <section id="top" className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-32 banner-bg">
-      <div className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-[oklch(0.86_0.10_200/0.18)] blur-[120px]" />
-      <div className="pointer-events-none absolute top-20 right-0 h-[400px] w-[400px] rounded-full bg-[oklch(0.78_0.13_240/0.18)] blur-[100px]" />
+      <div
+        className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-[oklch(0.86_0.10_200/0.18)] blur-[120px]"
+        style={{ willChange: "filter", contain: "layout paint" }}
+      />
+      <div
+        className="pointer-events-none absolute top-20 right-0 h-[400px] w-[400px] rounded-full bg-[oklch(0.78_0.13_240/0.18)] blur-[100px]"
+        style={{ willChange: "filter", contain: "layout paint" }}
+      />
       <div className="absolute inset-0 grain opacity-40" />
 
       <div className="relative mx-auto grid max-w-7xl gap-16 px-5 md:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
@@ -199,6 +209,8 @@ export function Hero() {
                   alt={client.name}
                   width={120}
                   height={40}
+                  priority
+                  sizes="(max-width: 640px) 50vw, 120px"
                   className="h-10 w-auto object-contain opacity-65 [filter:brightness(0)_invert(1)]"
                 />
               ))}
@@ -207,7 +219,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30, scale: 0.97 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 30, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="relative"

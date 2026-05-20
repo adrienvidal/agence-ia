@@ -1,19 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useContactModal } from "@/lib/contact-modal-context";
+import { useScrollVisibility } from "@/lib/use-scroll-visibility";
 
 export function StickyCtaBar() {
-  const [visible, setVisible] = useState(false);
+  const visible = useScrollVisibility(500);
   const { openModal } = useContactModal();
-
-  useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 500);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <AnimatePresence>

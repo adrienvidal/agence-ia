@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useMemo, useCallback } from "react";
 
 type ContactModalContextType = {
   isOpen: boolean;
@@ -13,13 +13,12 @@ const ContactModalContext = createContext<ContactModalContextType | null>(null);
 export function ContactModalProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <ContactModalContext.Provider
-      value={{ isOpen, openModal: () => setIsOpen(true), closeModal: () => setIsOpen(false) }}
-    >
-      {children}
-    </ContactModalContext.Provider>
-  );
+  const openModal = useCallback(() => setIsOpen(true), []);
+  const closeModal = useCallback(() => setIsOpen(false), []);
+
+  const value = useMemo(() => ({ isOpen, openModal, closeModal }), [isOpen, openModal, closeModal]);
+
+  return <ContactModalContext.Provider value={value}>{children}</ContactModalContext.Provider>;
 }
 
 export function useContactModal() {
