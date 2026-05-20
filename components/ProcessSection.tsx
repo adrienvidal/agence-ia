@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Infinity as InfinityIcon } from "lucide-react";
-import { CALENDLY_URL, PROCESS_SECTION, PROCESS_STEPS } from "@/lib/data";
+import { PROCESS_SECTION, PROCESS_STEPS } from "@/lib/data";
+import { useContactModal } from "@/lib/contact-modal-context";
 
 export function ProcessSection() {
+  const { openModal } = useContactModal();
   return (
     <section id="processus" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
@@ -61,15 +63,13 @@ export function ProcessSection() {
         </motion.div>
 
         <div className="mt-14 flex justify-center">
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noreferrer"
+          <button
+            onClick={openModal}
             className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:opacity-90"
           >
             {PROCESS_SECTION.cta}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
+          </button>
         </div>
       </div>
     </section>

@@ -20,7 +20,7 @@ Single-page landing site built with **Next.js 15 App Router** + **React 19** + *
 
 ```
 app/
-  layout.tsx            # Root HTML shell + global metadata + Google Fonts
+  layout.tsx            # Root HTML shell + global metadata + Google Fonts + ContactModalProvider
   page.tsx              # Home page (section order + per-page metadata)
   globals.css           # Tailwind v4 theme + custom utilities
   robots.ts             # SEO robots.txt
@@ -28,14 +28,17 @@ app/
   error.tsx             # Global error boundary
   not-found.tsx         # 404 page
   og/route.tsx          # Dynamic OG image (edge runtime, ImageResponse)
+  api/contact/route.ts  # POST endpoint — sends emails via Resend
   confidentialite/      # Privacy policy page
   cgu/                  # Terms of service page
   mentions-legales/     # Legal notices page
   cookies/              # Cookie policy page
 components/             # Presentational sections (all "use client")
+  ContactModal.tsx      # Audit contact form modal (Framer Motion, no shadcn)
 lib/
   data.ts               # All static content (copy, links, project data)
   utils.ts              # cn() helper (clsx + tailwind-merge)
+  contact-modal-context.tsx  # React context + useContactModal() hook
 ```
 
 Section rendering order in `page.tsx`: `JsonLd → Nav → Hero → ToolsBar → PainSection → ServicesSection → RealisationsSection → ProcessSection → FounderSection → FaqSection → CtaFinal → Footer`.
@@ -58,7 +61,7 @@ Section rendering order in `page.tsx`: `JsonLd → Nav → Hero → ToolsBar →
 
 **Static assets** live in `public/`. Client logos are in `public/clients/` (webp/png). On the dark-only site, logos are rendered white via `[filter:brightness(0)_invert(1)]` + `opacity-40`.
 
-**All static content** (copy, URLs, project data, FAQ) lives in [lib/data.ts](lib/data.ts). Edit there first when updating site content. `CALENDLY_URL` is the primary CTA used across multiple components. `SITE_URL` is used for OG and sitemap generation.
+**All static content** (copy, URLs, project data, FAQ) lives in [lib/data.ts](lib/data.ts). Edit there first when updating site content. `CALENDLY_URL` is used only in `ContactModal` (success state). `SITE_URL` is used for OG and sitemap generation.
 
 Every text visible on the site is exported from `lib/data.ts` — no hardcoded strings in components. Exports are organized by section:
 
@@ -75,4 +78,17 @@ Every text visible on the site is exported from `lib/data.ts` — no hardcoded s
 | `FOUNDER_SECTION` / `CLIENTS`                            | Founder section                                               |
 | `FAQ_SECTION` / `FAQ`                                    | FAQ section                                                   |
 | `CTA_FINAL`                                              | Final CTA section                                             |
+| `CONTACT_FORM`                                           | Contact modal (title, fields, service pills, success state)   |
 | `FOOTER`                                                 | Footer (copyright, links)                                     |
+
+## Contact form
+
+All "audit" CTAs across the site open a **modal contact form** instead of linking directly to Calendly.
+
+**Flow:** CTA click → `ContactModal` opens → user fills form → POST `/api/contact` → Resend sends two emails (notification to `contact@viloris.io` + confirmation to the lead) → success state shows a Calendly link.
+
+**Opening the modal** — any component imports `useContactModal()` from `lib/contact-modal-context.tsx` and calls `openModal()`. The `ContactModalProvider` and `<ContactModal />` are mounted once in `app/layout.tsx`.
+
+**Environment variable** — `RESEND_API_KEY` must be set in `.env.local` (see `.env.example`). The Resend client is instantiated inside the handler, not at module level, to avoid build-time errors.
+
+**Service options** in the form come from `CONTACT_FORM.services` in `lib/data.ts` — edit there to add or rename options.

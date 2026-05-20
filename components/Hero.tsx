@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Shield, Star, CheckCircle2, Loader2, Zap } from "lucide-react";
-import { CALENDLY_URL, HERO, SHOW_REALISATIONS } from "@/lib/data";
+import { HERO, SHOW_REALISATIONS } from "@/lib/data";
+import { useContactModal } from "@/lib/contact-modal-context";
 
 const WORKFLOW_STEPS = HERO.workflow.steps;
 const REVEAL_DELAY = 400;
@@ -14,7 +15,7 @@ const STEP_GAP = 950;
 function WorkflowCard() {
   type StepState = "hidden" | "processing" | "done";
   const [stepStates, setStepStates] = useState<StepState[]>(() =>
-    WORKFLOW_STEPS.map(() => "hidden")
+    WORKFLOW_STEPS.map(() => "hidden"),
   );
   const [showFooter, setShowFooter] = useState(false);
   const [cycleKey, setCycleKey] = useState(0);
@@ -29,14 +30,14 @@ function WorkflowCard() {
       timers.push(
         setTimeout(
           () => setStepStates((p) => p.map((s, j) => (j === i ? "processing" : s))),
-          REVEAL_DELAY + i * STEP_GAP
-        )
+          REVEAL_DELAY + i * STEP_GAP,
+        ),
       );
       timers.push(
         setTimeout(
           () => setStepStates((p) => p.map((s, j) => (j === i ? "done" : s))),
-          REVEAL_DELAY + i * STEP_GAP + PROCESS_DURATION
-        )
+          REVEAL_DELAY + i * STEP_GAP + PROCESS_DURATION,
+        ),
       );
     });
 
@@ -111,7 +112,7 @@ function WorkflowCard() {
                 )}
               </span>
             </motion.div>
-          )
+          ),
         )}
       </div>
 
@@ -136,6 +137,7 @@ function WorkflowCard() {
 }
 
 export function Hero() {
+  const { openModal } = useContactModal();
   return (
     <section id="top" className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-32 banner-bg">
       <div className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-[oklch(0.86_0.10_200/0.18)] blur-[120px]" />
@@ -153,7 +155,7 @@ export function Hero() {
             {HERO.badge}
           </div>
 
-          <h1 className="mt-6 font-display text-5xl font-bold leading-[0.95] tracking-tight text-balance md:text-7xl lg:text-[5.5rem]">
+          <h1 className="mt-6 font-display text-5xl font-bold leading-[0.95] tracking-tight text-balance md:text-7xl lg:text-[5rem]">
             {HERO.headline}
             <br />
             <span className="gradient-text">{HERO.headline_accent}</span>
@@ -164,15 +166,13 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noreferrer"
+            <button
+              onClick={openModal}
               className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:opacity-90 glow"
             >
               {HERO.cta_primary}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
+            </button>
             {SHOW_REALISATIONS && (
               <a
                 href="#realisations"
@@ -183,21 +183,15 @@ export function Hero() {
             )}
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+          <div className="mt-10 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <Shield className="h-4 w-4 text-primary" />
               {HERO.gdpr}
             </div>
-            <div className="flex items-center gap-2">
-              <Star className="h-4 w-4 fill-primary text-primary" />
-              {HERO.social_proof}
-            </div>
           </div>
 
           <div className="mt-10 border-t border-border/30 pt-8">
-            <p className="mb-5 text-xs italic leading-relaxed text-muted-foreground">
-              {HERO.clients_tagline}
-            </p>
+            <p className="mb-5 text-sm text-foreground/60">{HERO.clients_tagline}</p>
             <div className="flex flex-wrap items-center gap-10">
               {HERO.clients.map((client) => (
                 <Image
@@ -220,6 +214,9 @@ export function Hero() {
           className="relative"
         >
           <WorkflowCard />
+          <p className="mt-3 text-center text-xs text-muted-foreground/50 italic">
+            {HERO.workflow.caption}
+          </p>
         </motion.div>
       </div>
     </section>

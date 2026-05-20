@@ -3,10 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { CALENDLY_URL, NAV, NAV_LINKS, SHOW_REALISATIONS } from "@/lib/data";
+import { NAV, NAV_LINKS, SHOW_REALISATIONS } from "@/lib/data";
+import { useContactModal } from "@/lib/contact-modal-context";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const { openModal } = useContactModal();
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/40 bg-background/70 backdrop-blur-xl">
@@ -30,14 +32,12 @@ export function Nav() {
           ))}
         </nav>
 
-        <a
-          href={CALENDLY_URL}
-          target="_blank"
-          rel="noreferrer"
+        <button
+          onClick={openModal}
           className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:opacity-90"
         >
           {NAV.cta} <ArrowUpRight className="h-4 w-4" />
-        </a>
+        </button>
 
         <button
           aria-label="Menu"
@@ -61,14 +61,15 @@ export function Nav() {
                 {l.label}
               </a>
             ))}
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noreferrer"
+            <button
+              onClick={() => {
+                openModal();
+                setOpen(false);
+              }}
               className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-4 py-3 text-sm font-medium text-primary-foreground"
             >
               {NAV.cta} <ArrowUpRight className="h-4 w-4" />
-            </a>
+            </button>
           </div>
         </div>
       )}
