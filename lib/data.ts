@@ -34,14 +34,17 @@ export const HERO = {
   cta_secondary: "Voir mes réalisations",
   social_proof: "100% clients satisfaits",
   gdpr: "RGPD · données hébergées en Europe",
-  card: {
-    name: "Adrien Vidal",
-    role: "Développeur IA & Automatisation",
-    availability: "Répond en 24h",
-    stat1: { value: "10 ans", label: "Expérience front-end senior" },
-    stat2: { value: "+8", label: "Systèmes IA déployés" },
-    stack_label: "Stack signature",
-    stack: ["N8n", "OpenAI", "Anthropic", "Next.js", "Notion"],
+  workflow: {
+    filename: "lead_qualification.flow",
+    steps: [
+      { label: "Lead reçu via formulaire", time: "09:42:01" },
+      { label: "Agent IA analyse le profil", time: "09:42:02" },
+      { label: "Score de qualification : 87/100", time: "09:42:03" },
+      { label: "CRM mis à jour automatiquement", time: "09:42:04" },
+      { label: "Email de bienvenue envoyé", time: "09:42:04" },
+      { label: "Notification Slack → vous", time: "09:42:05" },
+    ],
+    footer: "6 actions · 0 intervention humaine",
   },
   clients_tagline:
     "10 ans à construire des interfaces exigeantes pour des grandes marques. Cette rigueur, je l'applique aujourd'hui aux PME qui veulent le même niveau d'exécution, sans les délais d'une agence.",

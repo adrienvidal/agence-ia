@@ -1,9 +1,139 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowRight, Shield, Star, Clock } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Shield, Star, CheckCircle2, Loader2, Zap } from "lucide-react";
 import { CALENDLY_URL, HERO, SHOW_REALISATIONS } from "@/lib/data";
+
+const WORKFLOW_STEPS = HERO.workflow.steps;
+const REVEAL_DELAY = 400;
+const PROCESS_DURATION = 650;
+const STEP_GAP = 950;
+
+function WorkflowCard() {
+  type StepState = "hidden" | "processing" | "done";
+  const [stepStates, setStepStates] = useState<StepState[]>(() =>
+    WORKFLOW_STEPS.map(() => "hidden")
+  );
+  const [showFooter, setShowFooter] = useState(false);
+  const [cycleKey, setCycleKey] = useState(0);
+
+  useEffect(() => {
+    setStepStates(WORKFLOW_STEPS.map(() => "hidden"));
+    setShowFooter(false);
+
+    const timers: ReturnType<typeof setTimeout>[] = [];
+
+    WORKFLOW_STEPS.forEach((_, i) => {
+      timers.push(
+        setTimeout(
+          () => setStepStates((p) => p.map((s, j) => (j === i ? "processing" : s))),
+          REVEAL_DELAY + i * STEP_GAP
+        )
+      );
+      timers.push(
+        setTimeout(
+          () => setStepStates((p) => p.map((s, j) => (j === i ? "done" : s))),
+          REVEAL_DELAY + i * STEP_GAP + PROCESS_DURATION
+        )
+      );
+    });
+
+    const allDoneAt = REVEAL_DELAY + (WORKFLOW_STEPS.length - 1) * STEP_GAP + PROCESS_DURATION;
+    timers.push(setTimeout(() => setShowFooter(true), allDoneAt + 300));
+    timers.push(setTimeout(() => setCycleKey((k) => k + 1), allDoneAt + 3000));
+
+    return () => timers.forEach(clearTimeout);
+  }, [cycleKey]);
+
+  return (
+    <div className="rounded-3xl border border-border bg-gradient-to-br from-surface to-background shadow-2xl overflow-hidden">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-border/50 bg-background/30">
+        <div className="flex items-center gap-3">
+          <div className="flex gap-1.5">
+            <div className="h-2.5 w-2.5 rounded-full bg-red-400/60" />
+            <div className="h-2.5 w-2.5 rounded-full bg-yellow-400/60" />
+            <div className="h-2.5 w-2.5 rounded-full bg-green-400/60" />
+          </div>
+          <span className="font-mono text-[11px] text-muted-foreground">
+            {HERO.workflow.filename}
+          </span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <motion.span
+            animate={{ opacity: [1, 0.2] }}
+            transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+            className="block h-1.5 w-1.5 rounded-full bg-green-400"
+          />
+          <span className="font-mono text-[10px] tracking-widest text-green-400">LIVE</span>
+        </div>
+      </div>
+
+      <div className="p-5 min-h-[256px] flex flex-col gap-2.5">
+        {stepStates.map((state, i) =>
+          state === "hidden" ? null : (
+            <motion.div
+              key={`${cycleKey}-step-${i}`}
+              initial={{ opacity: 0, x: -8 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="flex items-center gap-2.5"
+            >
+              <div className="w-3.5 shrink-0 flex items-center justify-center">
+                {state === "processing" ? (
+                  <Loader2 className="h-3.5 w-3.5 text-primary animate-spin" />
+                ) : (
+                  <motion.div
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  >
+                    <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
+                  </motion.div>
+                )}
+              </div>
+              <span className="font-mono text-[10px] text-muted-foreground/50 tabular-nums w-[4.5rem] shrink-0">
+                {WORKFLOW_STEPS[i].time}
+              </span>
+              <span
+                className={`font-mono text-[11px] leading-relaxed ${
+                  state === "processing" ? "text-foreground" : "text-foreground/65"
+                }`}
+              >
+                {WORKFLOW_STEPS[i].label}
+                {state === "processing" && (
+                  <motion.span
+                    animate={{ opacity: [1, 0] }}
+                    transition={{ repeat: Infinity, duration: 0.6 }}
+                    className="inline-block ml-0.5 w-[5px] h-[11px] bg-foreground/60 align-middle rounded-[1px]"
+                  />
+                )}
+              </span>
+            </motion.div>
+          )
+        )}
+      </div>
+
+      <AnimatePresence>
+        {showFooter && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35 }}
+            className="border-t border-border/50 px-5 py-3 flex items-center gap-2"
+          >
+            <Zap className="h-3 w-3 text-primary shrink-0" />
+            <span className="font-mono text-[11px] text-muted-foreground">
+              {HERO.workflow.footer}
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export function Hero() {
   return (
@@ -89,51 +219,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          <div className="relative rounded-3xl border border-border bg-gradient-to-br from-surface to-background p-6 md:p-8 shadow-2xl">
-            <div className="flex items-center gap-4">
-              <div className="relative grid h-16 w-16 place-items-center rounded-2xl bg-primary font-display text-2xl font-bold text-primary-foreground">
-                AV
-                <span className="absolute -bottom-1 -right-1 h-4 w-4 rounded-full border-2 border-background bg-primary" />
-              </div>
-              <div>
-                <div className="font-display text-lg font-semibold">{HERO.card.name}</div>
-                <div className="text-sm text-muted-foreground">{HERO.card.role}</div>
-              </div>
-            </div>
-
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary">
-              <Clock className="h-3 w-3" />
-              {HERO.card.availability}
-            </div>
-
-            <div className="mt-8 grid grid-cols-2 gap-3">
-              <div className="rounded-2xl border border-border bg-background/50 p-5">
-                <div className="font-display text-4xl font-semibold text-primary">
-                  {HERO.card.stat1.value}
-                </div>
-                <div className="mt-1 text-xs text-muted-foreground">{HERO.card.stat1.label}</div>
-              </div>
-              <div className="rounded-2xl border border-border bg-background/50 p-5">
-                <div className="font-display text-4xl font-semibold text-primary">
-                  {HERO.card.stat2.value}
-                </div>
-                <div className="mt-1 text-xs text-muted-foreground">{HERO.card.stat2.label}</div>
-              </div>
-            </div>
-
-            <div className="mt-6 rounded-2xl border border-border bg-background/50 p-5">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">
-                {HERO.card.stack_label}
-              </div>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {HERO.card.stack.map((t) => (
-                  <span key={t} className="rounded-md bg-surface px-2 py-1 text-xs text-foreground">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+          <WorkflowCard />
         </motion.div>
       </div>
     </section>
