@@ -22,7 +22,7 @@ export function StickyCtaBar() {
           <div className="bg-background/90 backdrop-blur-xl border-t border-border/40 px-4 py-3">
             <button
               onClick={openModal}
-              className="group w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:opacity-90 glow cursor-pointer"
+              className="group w-full inline-flex items-center justify-center gap-2 rounded-full cta-btn px-6 py-3.5 text-sm font-medium text-primary-foreground cursor-pointer"
             >
               Réserver mon audit gratuit
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

@@ -34,7 +34,7 @@ export function Nav() {
 
         <button
           onClick={openModal}
-          className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+          className="hidden md:inline-flex items-center gap-1.5 rounded-full cta-btn px-4 py-2 text-sm font-medium text-primary-foreground"
         >
           {NAV.cta} <ArrowUpRight className="h-4 w-4" />
         </button>
@@ -66,7 +66,7 @@ export function Nav() {
                 openModal();
                 setOpen(false);
               }}
-              className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-4 py-3 text-sm font-medium text-primary-foreground"
+              className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-full cta-btn px-4 py-3 text-sm font-medium text-primary-foreground"
             >
               {NAV.cta} <ArrowUpRight className="h-4 w-4" />
             </button>

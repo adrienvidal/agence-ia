@@ -75,7 +75,7 @@ export function ProcessSection() {
         <div className="mt-14 flex justify-center">
           <button
             onClick={openModal}
-            className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+            className="group inline-flex items-center gap-2 rounded-full cta-btn px-6 py-3.5 text-sm font-medium text-primary-foreground"
           >
             {PROCESS_SECTION.cta}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
