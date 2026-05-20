@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { CALENDLY_URL, FOUNDER_SECTION } from "@/lib/data";
 
 export function FounderSection() {
@@ -20,14 +21,20 @@ export function FounderSection() {
               {FOUNDER_SECTION.label}
             </div>
 
-            <div className="mt-8 flex items-center gap-4">
-              <div className="grid h-20 w-20 place-items-center rounded-2xl bg-primary font-display text-3xl font-bold text-primary-foreground glow">
-                AV
+            <div className="mt-8 inline-flex flex-col gap-3">
+              <div className="relative h-40 w-40 overflow-hidden rounded-2xl">
+                <Image
+                  src="/adrien-profil.webp"
+                  alt="Adrien Vidal"
+                  fill
+                  className="object-cover"
+                  sizes="160px"
+                />
               </div>
               <div>
                 <div className="font-display text-xl font-semibold">{FOUNDER_SECTION.name}</div>
                 <div className="text-sm text-muted-foreground">{FOUNDER_SECTION.company}</div>
-                <div className="text-xs text-muted-foreground/70">{FOUNDER_SECTION.role}</div>
+                <div className="text-xs text-muted-foreground">{FOUNDER_SECTION.role}</div>
               </div>
             </div>
 

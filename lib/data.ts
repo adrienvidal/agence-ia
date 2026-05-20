@@ -237,7 +237,7 @@ export const PROCESS_STEPS = [
 export const FOUNDER_SECTION = {
   label: "Le mot du fondateur",
   name: "Adrien Vidal",
-  company: "Fondateur · WEBNROLLS EURL",
+  company: "Fondateur · VILORIS.IO",
   role: "Développeur IA & Automatisation",
   bio: [
     "J'ai passé 10 ans à construire des interfaces exigeantes pour Chanel, Darty, Fnac. Cette rigueur technique, je l'applique à l'automatisation IA pour les PME qui veulent scaler sans recruter.",
