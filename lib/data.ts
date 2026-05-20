@@ -86,7 +86,7 @@ export const PAIN_SECTION = {
 
 export const PAINS = [
   {
-    title: "Vous êtes le système",
+    title: "Temps perdu",
     body: "Relances manuelles, devis à recopier, suivis qui tombent à l'eau. Sans vous, rien ne tourne. Votre croissance est plafonnée par votre propre disponibilité.",
   },
   {
