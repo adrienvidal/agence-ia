@@ -31,7 +31,7 @@ export function CtaFinal() {
         <div className="mt-10 flex flex-col items-center gap-3">
           <button
             onClick={openModal}
-            className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-base font-medium text-primary-foreground transition hover:opacity-90 glow"
+            className="group inline-flex items-center gap-2 rounded-full cta-btn px-7 py-4 text-base font-medium text-primary-foreground"
           >
             {CTA_FINAL.cta}
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
