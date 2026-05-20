@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_URL,
     locale: "fr_FR",
-    siteName: "Adrien Vidal · WEBNROLLS",
+    siteName: "Adrien Vidal · VILORIS.IO",
     images: [{ url: `${SITE_URL}/og`, width: 1200, height: 630, alt: META.og.title }],
   },
   twitter: {
