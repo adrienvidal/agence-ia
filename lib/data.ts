@@ -2,7 +2,7 @@ export const SITE_URL = "https://viloris.io";
 
 export const SHOW_REALISATIONS = true;
 export const SHOW_UPCOMING_PROJECT = false;
-export const CALENDLY_URL = "https://calendly.com/adrienvidal";
+export const CALENDLY_URL = "https://calendly.com/viloris/30min";
 
 export const META = {
   title: "viloris.io — Automatisation IA & Agents sur-mesure",

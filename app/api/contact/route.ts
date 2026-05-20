@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { CALENDLY_URL } from "@/lib/data";
 
-const FROM = "IMPORTANT: Demande VILORIS.IO <contact@viloris.io>";
+const FROM = "VILORIS.IO IMPORTANT <contact@viloris.io>";
 const TO = "contact.webnrolls@gmail.com";
 
 export async function POST(req: NextRequest) {
@@ -40,7 +41,7 @@ export async function POST(req: NextRequest) {
       <p style="font-family:sans-serif">Bonjour ${name.split(" ")[0]},</p>
       <p style="font-family:sans-serif">J'ai bien reçu votre demande et je reviens vers vous sous 24h.</p>
       <p style="font-family:sans-serif">En attendant, vous pouvez réserver directement un créneau dans mon agenda :<br>
-        <a href="https://calendly.com/adrienvidal" style="color:#60a7d6">Réserver un créneau →</a>
+        <a href="${CALENDLY_URL}" style="color:#60a7d6">Réserver un créneau →</a>
       </p>
       <br>
       <p style="font-family:sans-serif">Adrien Vidal<br>Fondateur · Viloris.io</p>
