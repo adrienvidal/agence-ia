@@ -247,7 +247,7 @@ export const FOUNDER_SECTION = {
     quote:
       "Il est intervenu sur des projets de A à Z, dans un contexte exigeant, avec des contraintes fortes de performance.",
     author: "Marine Benoit-Jannin",
-    role: "Lead développeur — Chanel",
+    role: "Lead développeur front-end — Chanel",
   },
 };
 
