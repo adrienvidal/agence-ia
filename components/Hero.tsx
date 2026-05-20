@@ -165,10 +165,15 @@ export function Hero() {
             {HERO.description}
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
+            <Shield className="h-4 w-4 text-primary shrink-0" />
+            {HERO.gdpr}
+          </div>
+
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <button
               onClick={openModal}
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:opacity-90 glow"
+              className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:opacity-90 glow cursor-pointer"
             >
               {HERO.cta_primary}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -176,23 +181,17 @@ export function Hero() {
             {SHOW_REALISATIONS && (
               <a
                 href="#realisations"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-6 py-3.5 text-sm font-medium text-foreground backdrop-blur hover:bg-surface"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
               >
                 {HERO.cta_secondary}
+                <ArrowRight className="h-3.5 w-3.5" />
               </a>
             )}
           </div>
 
-          <div className="mt-10 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <Shield className="h-4 w-4 text-primary" />
-              {HERO.gdpr}
-            </div>
-          </div>
-
           <div className="mt-10 border-t border-border/30 pt-8">
             <p className="mb-5 text-sm text-foreground/60">{HERO.clients_tagline}</p>
-            <div className="flex flex-wrap items-center gap-10">
+            <div className="grid grid-cols-2 justify-items-center gap-x-6 gap-y-6 sm:flex sm:flex-wrap sm:justify-start sm:items-center sm:gap-10">
               {HERO.clients.map((client) => (
                 <Image
                   key={client.name}
@@ -200,7 +199,7 @@ export function Hero() {
                   alt={client.name}
                   width={120}
                   height={40}
-                  className="h-10 w-auto object-contain opacity-55 filter-[brightness(0)_invert(1)]"
+                  className="h-10 w-auto object-contain opacity-65 [filter:brightness(0)_invert(1)]"
                 />
               ))}
             </div>

@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 import {
   PROJECTS,
   REALISATIONS_SECTION,
@@ -12,6 +13,17 @@ import { useContactModal } from "@/lib/contact-modal-context";
 
 export function RealisationsSection() {
   const { openModal } = useContactModal();
+  const [expandedProjects, setExpandedProjects] = useState<Set<number>>(new Set());
+
+  const toggleProject = (i: number) => {
+    setExpandedProjects((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
+      return next;
+    });
+  };
+
   return (
     <section
       id="realisations"
@@ -37,65 +49,120 @@ export function RealisationsSection() {
         </motion.div>
 
         <div className="mt-16 space-y-6">
-          {PROJECTS.map((p, i) => (
-            <motion.article
-              key={p.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface to-background p-7 md:p-10"
-            >
-              <div className="grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-center">
-                <div>
-                  <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="rounded-full border border-amber-500/40 bg-amber-500/10 px-2.5 py-1 text-xs text-amber-400">
-                      {REALISATIONS_SECTION.demo_badge}
-                    </span>
-                    {p.tags.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-xs text-primary"
-                      >
-                        {t}
+          {PROJECTS.map((p, i) => {
+            const isExpanded = expandedProjects.has(i);
+            return (
+              <motion.article
+                key={p.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="group relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface to-background p-7 md:p-10"
+              >
+                <div className="grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-center">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className="rounded-full border border-amber-500/40 bg-amber-500/10 px-2.5 py-1 text-[13px] text-amber-400">
+                        {REALISATIONS_SECTION.demo_badge}
                       </span>
-                    ))}
-                  </div>
-                  <h3 className="mt-4 font-display text-3xl font-semibold md:text-4xl">{p.name}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{p.subtitle}</p>
-                  <p className="mt-5 text-base text-foreground/90 leading-relaxed">
-                    {p.description}
-                  </p>
-
-                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                    <div className="rounded-2xl border border-border bg-background/60 p-4">
-                      <div className="text-xs uppercase tracking-wider text-muted-foreground">
-                        {REALISATIONS_SECTION.problem_label}
-                      </div>
-                      <p className="mt-2 text-sm text-foreground/85 leading-relaxed">{p.problem}</p>
+                      {p.tags.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-[13px] text-primary"
+                        >
+                          {t}
+                        </span>
+                      ))}
                     </div>
-                    <div className="rounded-2xl border border-border bg-background/60 p-4">
-                      <div className="text-xs uppercase tracking-wider text-primary">
-                        {REALISATIONS_SECTION.solution_label}
+                    <h3 className="mt-4 font-display text-3xl font-semibold md:text-4xl">{p.name}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{p.subtitle}</p>
+                    <p className="mt-5 text-base text-foreground/90 leading-relaxed">
+                      {p.description}
+                    </p>
+
+                    {/* Mobile: metric visible inline, details collapsible */}
+                    <div className="mt-6 md:hidden">
+                      <div className="rounded-3xl border border-primary/30 bg-primary/5 p-6 text-center">
+                        <div className="font-display text-5xl font-semibold text-primary">
+                          {p.metric.value}
+                        </div>
+                        <div className="mt-1.5 text-sm text-muted-foreground">{p.metric.label}</div>
                       </div>
-                      <p className="mt-2 text-sm text-foreground/85 leading-relaxed">
-                        {p.solution}
-                      </p>
+                    </div>
+
+                    {/* Problem/solution toggle on mobile */}
+                    <button
+                      onClick={() => toggleProject(i)}
+                      className="mt-5 flex items-center gap-1.5 text-sm text-primary font-medium md:hidden cursor-pointer"
+                    >
+                      {isExpanded ? "Masquer le détail" : "Voir le problème & la solution"}
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+                      />
+                    </button>
+
+                    {/* Always visible on desktop, toggle on mobile */}
+                    <AnimatePresence initial={false}>
+                      {(isExpanded) && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                          className="overflow-hidden md:hidden"
+                        >
+                          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                            <div className="rounded-2xl border border-border bg-background/60 p-4">
+                              <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                                {REALISATIONS_SECTION.problem_label}
+                              </div>
+                              <p className="mt-2 text-sm text-foreground/85 leading-relaxed">{p.problem}</p>
+                            </div>
+                            <div className="rounded-2xl border border-border bg-background/60 p-4">
+                              <div className="text-xs uppercase tracking-wider text-primary">
+                                {REALISATIONS_SECTION.solution_label}
+                              </div>
+                              <p className="mt-2 text-sm text-foreground/85 leading-relaxed">
+                                {p.solution}
+                              </p>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {/* Always visible on desktop */}
+                    <div className="mt-6 hidden md:grid gap-4 sm:grid-cols-2">
+                      <div className="rounded-2xl border border-border bg-background/60 p-4">
+                        <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                          {REALISATIONS_SECTION.problem_label}
+                        </div>
+                        <p className="mt-2 text-sm text-foreground/85 leading-relaxed">{p.problem}</p>
+                      </div>
+                      <div className="rounded-2xl border border-border bg-background/60 p-4">
+                        <div className="text-xs uppercase tracking-wider text-primary">
+                          {REALISATIONS_SECTION.solution_label}
+                        </div>
+                        <p className="mt-2 text-sm text-foreground/85 leading-relaxed">
+                          {p.solution}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="relative hidden md:block">
+                    <div className="rounded-3xl border border-primary/30 bg-primary/5 p-8 text-center">
+                      <div className="font-display text-6xl font-semibold text-primary md:text-7xl">
+                        {p.metric.value}
+                      </div>
+                      <div className="mt-2 text-sm text-muted-foreground">{p.metric.label}</div>
                     </div>
                   </div>
                 </div>
-
-                <div className="relative">
-                  <div className="rounded-3xl border border-primary/30 bg-primary/5 p-8 text-center">
-                    <div className="font-display text-6xl font-semibold text-primary md:text-7xl">
-                      {p.metric.value}
-                    </div>
-                    <div className="mt-2 text-sm text-muted-foreground">{p.metric.label}</div>
-                  </div>
-                </div>
-              </div>
-            </motion.article>
-          ))}
+              </motion.article>
+            );
+          })}
 
           {SHOW_UPCOMING_PROJECT && (
             <motion.article
@@ -135,7 +202,7 @@ export function RealisationsSection() {
         <div className="mt-6 flex justify-center">
           <button
             onClick={openModal}
-            className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+            className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:opacity-90 cursor-pointer"
           >
             {REALISATIONS_SECTION.cta}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

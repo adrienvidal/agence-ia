@@ -12,6 +12,8 @@ import { FaqSection } from "@/components/FaqSection";
 import { CtaFinal } from "@/components/CtaFinal";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { StickyCtaBar } from "@/components/StickyCtaBar";
+import { BackToTop } from "@/components/BackToTop";
 import { META, SHOW_REALISATIONS, SITE_URL } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -52,6 +54,8 @@ export default function Home() {
       <FaqSection />
       <CtaFinal />
       <Footer />
+      <StickyCtaBar />
+      <BackToTop />
       <SpeedInsights />
     </main>
   );

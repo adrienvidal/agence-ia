@@ -23,14 +23,14 @@ export function FounderSection() {
               {FOUNDER_SECTION.label}
             </div>
 
-            <div className="mt-8 inline-flex flex-col gap-4">
-              <div className="relative h-[300px] w-[220px] overflow-hidden rounded-2xl ring-1 ring-border shadow-lg">
+            <div className="mt-8 flex flex-col gap-4">
+              <div className="relative h-[280px] w-full overflow-hidden rounded-2xl ring-1 ring-border shadow-lg sm:h-[300px] sm:w-[220px]">
                 <Image
                   src="/adrien-profil.webp"
                   alt="Adrien Vidal"
                   fill
-                  className="object-cover object-top"
-                  sizes="220px"
+                  className="object-cover object-center sm:object-top"
+                  sizes="(max-width: 640px) 100vw, 220px"
                 />
               </div>
               <div>
@@ -40,7 +40,8 @@ export function FounderSection() {
               </div>
             </div>
 
-            <blockquote className="mt-8 border-l-2 border-primary/60 pl-4">
+            {/* Testimonial visible sur desktop uniquement dans la colonne gauche */}
+            <blockquote className="mt-8 hidden lg:block border-l-2 border-primary/60 pl-4">
               <p className="text-sm leading-relaxed text-foreground/80 italic">
                 &ldquo;{FOUNDER_SECTION.testimonial.quote}&rdquo;
               </p>
@@ -63,11 +64,26 @@ export function FounderSection() {
             ))}
             <button
               onClick={openModal}
-              className="group mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              className="group mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 cursor-pointer"
             >
               Réserver mon audit gratuit
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </button>
+
+            {/* Testimonial visible sur mobile uniquement, après la bio */}
+            <blockquote className="lg:hidden border-l-2 border-primary/60 pl-4 pt-2">
+              <p className="text-sm leading-relaxed text-foreground/80 italic">
+                &ldquo;{FOUNDER_SECTION.testimonial.quote}&rdquo;
+              </p>
+              <footer className="mt-3">
+                <span className="text-sm font-medium text-foreground">
+                  {FOUNDER_SECTION.testimonial.author}
+                </span>
+                <span className="ml-2 text-xs text-muted-foreground">
+                  {FOUNDER_SECTION.testimonial.role}
+                </span>
+              </footer>
+            </blockquote>
           </div>
         </motion.div>
       </div>

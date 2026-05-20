@@ -162,7 +162,7 @@ export const REALISATIONS_SECTION = {
     "Des exemples de ce que nous construisons. Chaque mission part de votre réalité, pas d'un catalogue.",
   note: "Votre situation ne ressemble à aucun de ces cas ? C'est souvent le signe qu'elle mérite une solution sur-mesure.",
   demo_badge: "Cas d'usage",
-  cta: "Lancer votre projet",
+  cta: "Réserver mon audit gratuit",
   problem_label: "Problème",
   solution_label: "Solution",
 };

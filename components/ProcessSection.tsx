@@ -25,7 +25,17 @@ export function ProcessSection() {
           </h2>
         </motion.div>
 
-        <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-4 flex items-center gap-1.5 md:hidden">
+          {PROCESS_STEPS.map((s) => (
+            <div key={s.n} className="flex items-center gap-1.5">
+              <div className="h-1.5 w-1.5 rounded-full bg-primary/40" />
+              <span className="font-mono text-[10px] text-muted-foreground/50">{s.n}</span>
+            </div>
+          ))}
+          <span className="ml-1 text-[10px] text-muted-foreground/40">étapes</span>
+        </div>
+
+        <div className="mt-12 md:mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {PROCESS_STEPS.map((s, i) => (
             <motion.div
               key={s.n}

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Plus, ShieldCheck } from "lucide-react";
+import { Plus } from "lucide-react";
 import { FAQ, FAQ_SECTION } from "@/lib/data";
 
 export function FaqSection() {
@@ -33,7 +33,7 @@ export function FaqSection() {
                   onClick={() => setOpen(isOpen ? null : i)}
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${i}`}
-                  className="flex w-full cursor-pointer items-center justify-between gap-4 p-6 text-left"
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 min-h-14 text-left"
                 >
                   <span className="font-display text-base font-medium md:text-lg">{item.q}</span>
                   <Plus
