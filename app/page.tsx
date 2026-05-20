@@ -3,12 +3,16 @@ import dynamic from "next/dynamic";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { ToolsBar } from "@/components/ToolsBar";
-import { PainSection } from "@/components/PainSection";
 import { JsonLd } from "@/components/JsonLd";
 import { META, SHOW_REALISATIONS, SITE_URL } from "@/lib/data";
 
 // Below-fold sections — lazy-loaded to reduce initial JS bundle
+const ToolsBar = dynamic(() =>
+  import("@/components/ToolsBar").then((m) => ({ default: m.ToolsBar })),
+);
+const PainSection = dynamic(() =>
+  import("@/components/PainSection").then((m) => ({ default: m.PainSection })),
+);
 const ServicesSection = dynamic(() =>
   import("@/components/ServicesSection").then((m) => ({ default: m.ServicesSection })),
 );
