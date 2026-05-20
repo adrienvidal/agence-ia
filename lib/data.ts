@@ -373,7 +373,13 @@ export const FOOTER = {
     street: "4 place Auguste Métivier",
     city: "75020 Paris",
   },
-  contact: [{ label: "contact@viloris.io", href: "mailto:contact@viloris.io" }],
+  contact: [
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/adrien-vidal-308b4864/",
+      icon: "linkedin",
+    },
+  ],
   ressources: [{ label: "FAQ", href: "#faq" }],
   legal: [
     { label: "Mentions légales", href: "/mentions-legales" },
