@@ -1,20 +1,40 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { ToolsBar } from "@/components/ToolsBar";
 import { PainSection } from "@/components/PainSection";
-import { ServicesSection } from "@/components/ServicesSection";
-import { RealisationsSection } from "@/components/RealisationsSection";
-import { ProcessSection } from "@/components/ProcessSection";
-import { FounderSection } from "@/components/FounderSection";
-import { FaqSection } from "@/components/FaqSection";
-import { CtaFinal } from "@/components/CtaFinal";
-import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
-import { StickyCtaBar } from "@/components/StickyCtaBar";
-import { BackToTop } from "@/components/BackToTop";
 import { META, SHOW_REALISATIONS, SITE_URL } from "@/lib/data";
+
+// Below-fold sections — lazy-loaded to reduce initial JS bundle
+const ServicesSection = dynamic(() =>
+  import("@/components/ServicesSection").then((m) => ({ default: m.ServicesSection })),
+);
+const RealisationsSection = dynamic(() =>
+  import("@/components/RealisationsSection").then((m) => ({ default: m.RealisationsSection })),
+);
+const ProcessSection = dynamic(() =>
+  import("@/components/ProcessSection").then((m) => ({ default: m.ProcessSection })),
+);
+const FounderSection = dynamic(() =>
+  import("@/components/FounderSection").then((m) => ({ default: m.FounderSection })),
+);
+const FaqSection = dynamic(() =>
+  import("@/components/FaqSection").then((m) => ({ default: m.FaqSection })),
+);
+const CtaFinal = dynamic(() =>
+  import("@/components/CtaFinal").then((m) => ({ default: m.CtaFinal })),
+);
+const Footer = dynamic(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
+
+const StickyCtaBar = dynamic(() =>
+  import("@/components/StickyCtaBar").then((m) => ({ default: m.StickyCtaBar })),
+);
+const BackToTop = dynamic(() =>
+  import("@/components/BackToTop").then((m) => ({ default: m.BackToTop })),
+);
 
 export const metadata: Metadata = {
   title: META.title,
